@@ -1,0 +1,167 @@
+@keyframes marquee-left {
+  0% { 
+    transform: translateX(0%); 
+  }
+  100% { 
+    transform: translateX(-50%); 
+  }
+}
+
+@keyframes marquee-right {
+  0% { 
+    transform: translateX(-50%); 
+  }
+  100% { 
+    transform: translateX(0%); 
+  }
+}
+
+.animateMarqueeLeft {
+  animation: marquee-left 45s linear infinite;
+  will-change: transform;
+}
+
+.animateMarqueeRight {
+  animation: marquee-right 45s linear infinite;
+  will-change: transform;
+}
+
+// Ensure animation pause works
+.animateMarqueeLeft[style*="animation-play-state: paused"],
+.animateMarqueeRight[style*="animation-play-state: paused"] {
+  animation-play-state: paused !important;
+}
+
+// Pause animation on reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  .animateMarqueeLeft,
+  .animateMarqueeRight {
+    animation-play-state: paused;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .animateMarqueeLeft,
+  .animateMarqueeRight {
+    animation-duration: 30s;
+  }
+}
+
+// Marquee wrapper with fade overlays
+.marqueeWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+// Left fade overlay - Hidden on mobile
+.fadeOverlayLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4rem;
+  height: 100%;
+  background: linear-gradient(to right, white, transparent);
+  z-index: 10;
+  pointer-events: none;
+  
+  // Hide on mobile devices
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// Right fade overlay - Hidden on mobile
+.fadeOverlayRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4rem;
+  height: 100%;
+  background: linear-gradient(to left, white, transparent);
+  z-index: 10;
+  pointer-events: none;
+  
+  // Hide on mobile devices
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// Ensure smooth continuous flow
+.marqueeContainer {
+  overflow: hidden;
+  position: relative;
+  
+  // Remove blur effects - no ::before and ::after pseudo-elements
+}
+
+.marqueeContent {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+}
+
+// Create seamless loop effect
+.marqueeDuplicate {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+}
+
+// Client logo container styling
+.clientLogo {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgb(253, 251, 251);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.clientImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+// Section styling
+.clientsSection {
+  width: 100%;
+  padding: 3rem 1rem;
+  background: white;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.logosContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2.1875rem;
+} 

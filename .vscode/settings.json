@@ -1,0 +1,44 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "never",
+    "source.organizeImports": "never"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.workingDirectories": ["."],
+  "eslint.format.enable": true,
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": false,
+  "files.associations": {
+    "*.js": "javascript",
+    "*.jsx": "javascriptreact",
+    "*.ts": "typescript",
+    "*.tsx": "typescriptreact"
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/out": true,
+    "**/build": true,
+    "**/dist": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/out": true,
+    "**/build": true,
+    "**/dist": true
+  }
+} 
