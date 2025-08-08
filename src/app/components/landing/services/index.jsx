@@ -24,7 +24,7 @@ const blogData = {
   bg: '#0A395B',
   description: (
     <>
-      We are true believers of being <strong>'Lifelong Students'</strong>. When
+      We are true believers of being <strong>&apos;Lifelong Students&apos;</strong>. When
       you stop learning, that is when you stagnate and stop growing.
       <br />
       Access our wide range of blogs to learn more!

@@ -1,0 +1,199 @@
+.timelineWrapper {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0;
+  
+    @media (min-width: 640px) {
+      padding-left: 1rem;
+      padding-right: 2rem;
+    }
+  
+    @media (min-width: 768px) {
+      padding-left: 1rem;
+      padding-right: 3rem;
+    }
+  }
+  
+  .timelineLine {
+    position: absolute;
+    left: 2.5rem; // mobile alignment - center of 3rem icon (1.5rem + 1rem padding)
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #cbd5e0; // Tailwind's gray-300
+    z-index: 0;
+    transform: translateX(-1px); // center the line perfectly
+  
+    @media (min-width: 640px) {
+      left: 2.75rem; // tablet alignment - center of 3.5rem icon (1.75rem + 1rem padding)
+    }
+  
+    @media (min-width: 768px) {
+      left: 3rem; // desktop alignment - center of 4rem icon (2rem + 1rem padding)
+    }
+  
+    @media (min-width: 1024px) {
+      left: 3.25rem; // large desktop alignment - center of 4.5rem icon (2.25rem + 1rem padding)
+    }
+  }
+  
+  .timelineItem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 0;
+    transition: all 0.6s ease;
+  }
+  
+  .timelineIcon {
+    z-index: 10;
+    background-color: rgb(2, 126, 197);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.75rem;
+  
+    @media (min-width: 640px) {
+      padding: 1rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      min-width: 3.5rem;
+      min-height: 3.5rem;
+    }
+  
+    @media (min-width: 768px) {
+      width: 4rem;
+      height: 4rem;
+      padding: 1.25rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+  
+    @media (min-width: 1024px) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  
+    svg {
+      color: white;
+      font-size: 1rem;
+  
+      @media (min-width: 640px) {
+        font-size: 1.25rem;
+      }
+  
+      @media (min-width: 768px) {
+        font-size: 1.5rem;
+      }
+  
+      @media (min-width: 1024px) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+  
+  .zoomIn {
+    animation: zoomIn 0.7s ease forwards;
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  // Header Animations
+  .slideUpFromLeft {
+    animation: slideUpFromLeft 1.2s ease-out forwards;
+  }
+
+  @keyframes slideUpFromLeft {
+    0% {
+      transform: translateX(-100%) translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .slideUpFromRight {
+    animation: slideUpFromRight 1.2s ease-out forwards;
+  }
+
+  @keyframes slideUpFromRight {
+    0% {
+      transform: translateX(100%) translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .charAnimation {
+    display: inline-block;
+    animation: charSlideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(50px) translateY(20px) rotate(10deg);
+  }
+
+  @keyframes charSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateX(50px) translateY(20px) rotate(10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+  }
+
+  .buttonSlideUp {
+    animation: buttonSlideUp 1s ease-out forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
+    transform: translateX(-100px) translateY(30px);
+  }
+
+  @keyframes buttonSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px) translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  // Mobile image background fix
+  .slideUpFromLeft {
+    background: transparent;
+    
+    img {
+      background: transparent;
+      display: block;
+    }
+  }
+
+  // Hide image initially before animation starts
+  .imageHidden {
+    opacity: 0;
+    transform: translateX(-100%) translateY(-50px);
+  }
+  

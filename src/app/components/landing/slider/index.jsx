@@ -1,7 +1,8 @@
 "use client";
+import React from "react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import React from 'react';
+
 const slideImages = [
   "/assets/landingPageImage/sliderImages/work.png",
   "/assets/landingPageImage/sliderImages/leave.png",

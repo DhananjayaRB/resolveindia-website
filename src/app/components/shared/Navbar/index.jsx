@@ -7,9 +7,9 @@ import { FaCalculator, FaMoneyBillWave, FaHandshake, FaCheckCircle, FaCalendarAl
 
 const menus = [
   { key: 'home', label: 'HOME', href: '/' },
-  { key: 'services', label: 'SERVICES', href: '/services' },
-  { key: 'products', label: 'PRODUCTS', href: '/products' },
-  { key: 'resources', label: 'RESOURCES', href: '/resources' },
+  { key: 'services', label: 'SERVICES', href: '/' },
+  { key: 'products', label: 'PRODUCTS', href: '/' },
+  { key: 'resources', label: 'RESOURCES', href: '/' },
   { key: 'faq-tips', label: 'FAQ & TIPS', href: '/faq-tips' },
   { key: 'contact', label: 'CONTACT', href: '/contact' },
   { key: 'about-us', label: 'ABOUT US', href: '/about-us' },
@@ -29,7 +29,7 @@ const menuData = {
   ],
   products: [
     { label: 'Leave', href: '/products/leave-management-system', icon: FaCalendarAlt },
-    { label: 'Attendance', href: '/products/attendance', icon: FaClock },
+    { label: 'Attendance', href: '/attendance', icon: FaClock },
   ],
   resources: [
     { label: 'Blogs', href: '/resources/blogs', icon: FaFileAlt },
@@ -86,7 +86,7 @@ export default function Navbar() {
              <img
                src={logo}
                alt='Resolve Logo'
-               className='h-12 w-auto object-contain hover:scale-105 transition-all duration-300'
+               className='h-10 w-auto object-contain hover:scale-105 transition-all duration-300'
              />
            </div>
 
@@ -113,14 +113,14 @@ export default function Navbar() {
              >
                <Link
                  href={menu.href}
-                 className={`
-                   text-sm font-medium tracking-wide transition-all duration-300 relative px-4 py-3 rounded-xl group 
-                   ${
-                     activeKey === menu.key
-                       ? 'text-[rgb(2,126,197)] font-semibold'
-                       : 'text-gray-600 hover:text-[rgb(2,126,197)] hover:bg-gray-50/60'
-                   }
-                 `}
+                                   className={`
+                    text-xs font-medium tracking-wide transition-all duration-300 relative px-4 py-3 rounded-xl group 
+                    ${
+                      activeKey === menu.key
+                        ? 'text-[rgb(2,126,197)] font-semibold transition-colors duration-300'
+                        : 'text-gray-600 hover:text-[rgb(2,126,197)] hover:bg-gray-50/60 transition-colors duration-300'
+                    }
+                  `}
                  aria-haspopup={menuData[menu.key] ? 'true' : 'false'}
                  aria-expanded={hoveredMenu === menu.key}
                >
@@ -206,14 +206,14 @@ export default function Navbar() {
                  <div key={menu.key}>
                    <Link
                      href={menu.href}
-                     className={`
-                       block text-sm font-medium tracking-wide transition-all duration-300 relative px-4 py-3 rounded-xl group 
-                       ${
-                         activeKey === menu.key
-                           ? 'text-[rgb(2,126,197)] font-semibold'
-                           : 'text-gray-600 hover:text-[rgb(2,126,197)] hover:bg-gray-50/60'
-                       }
-                     `}
+                                           className={`
+                        block text-xs font-medium tracking-wide transition-all duration-300 relative px-4 py-3 rounded-xl group 
+                        ${
+                          activeKey === menu.key
+                            ? 'text-[rgb(2,126,197)] font-semibold transition-colors duration-300'
+                            : 'text-gray-600 hover:text-[rgb(2,126,197)] hover:bg-gray-50/60 transition-colors duration-300'
+                        }
+                      `}
                      onClick={() => setIsMobileMenuOpen(false)}
                    >
                      {menu.label}
