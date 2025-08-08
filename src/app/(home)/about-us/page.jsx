@@ -190,11 +190,11 @@ export default function AboutUsPage() {
             <div className="mt-16">
               <div className="relative">
                 {/* Timeline Line - Visible on all devices */}
-                <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-[rgb(2,126,197)]/30 animate-pulse" aria-hidden="true"></div>
+                <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-[rgb(2,126,197)]/30 animate-pulse" aria-hidden="true" />
                 
                 <div className="space-y-8 md:space-y-12">
                   {milestones.map((milestone, index) => (
-                    <article key={index} className="relative transform transition-all duration-500 hover:scale-105 animate-slide-in-up" style={{ animationDelay: `${index * 200}ms` }}>
+                    <article key={`milestone-${milestone.year}-${milestone.title.replace(/\s+/g, '-').toLowerCase()}`} className="relative transform transition-all duration-500 hover:scale-105 animate-slide-in-up" style={{ animationDelay: `${index * 200}ms` }}>
                       {/* Mobile Layout - Stacked with line */}
                       <div className="md:hidden">
                         <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative">
@@ -228,7 +228,7 @@ export default function AboutUsPage() {
       </div>
 
                       {/* Timeline Dot - Visible on all devices */}
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[rgb(2,126,197)] rounded-full border-4 border-white shadow-lg animate-pulse" aria-hidden="true"></div>
+                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[rgb(2,126,197)] rounded-full border-4 border-white shadow-lg animate-pulse" aria-hidden="true" />
                     </article>
                   ))}
                 </div>
@@ -291,7 +291,7 @@ export default function AboutUsPage() {
           
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
              {teamData.map((member, index) => (
-                <article key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-500 transform hover:scale-105 animate-slide-in-up" style={{ animationDelay: `${index * 200}ms` }}>
+                <article key={`team-${member.name.replace(/\s+/g, '-').toLowerCase()}`} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-500 transform hover:scale-105 animate-slide-in-up" style={{ animationDelay: `${index * 200}ms` }}>
                   <div className="text-center mb-4">
                    <h3 className="text-lg font-bold text-gray-800 mb-1">
                      {member.name}
@@ -307,8 +307,8 @@ export default function AboutUsPage() {
                    </p>
                    
                     <div className="space-y-2">
-                     {member.expertise.map((skill, skillIndex) => (
-                        <div key={skillIndex} className="flex items-center justify-start">
+                     {member.expertise.map((skill) => (
+                        <div key={`${member.name.replace(/\s+/g, '-').toLowerCase()}-skill-${skill.replace(/\s+/g, '-').toLowerCase()}`} className="flex items-center justify-start">
                           <FaAward className="text-xs text-[rgb(2,126,197)] mr-2" aria-hidden="true" />
                          <span className="text-xs text-gray-600">{skill}</span>
                        </div>

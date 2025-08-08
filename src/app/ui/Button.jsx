@@ -7,7 +7,7 @@ const Button = ({
     className = '', 
     type = 'button',
     disabled = false,
-    ...props 
+    ...props
 }) => {
     return (
         <button

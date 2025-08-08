@@ -1,7 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
+import PropTypes from "prop-types";
+
 import "../globals.css";
 import { Navbar, Footer } from "../components/shared";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,7 +76,7 @@ export const metadata = {
   },
 };
 
-export default function HomeLayout({ children }) {
+function HomeLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -112,12 +115,22 @@ export default function HomeLayout({ children }) {
         />
       </head>
       <body style={{ paddingTop: "var(--navbar-height)" }} className={`${geistSans.variable} ${geistMono.variable}`}>
-       
+
         <header>
           <Navbar />
         </header>
         <main id="main-content">
-          {children}
+          <Suspense fallback={
+            <div className="min-h-screen bg-white flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-8 h-8 rounded-full border-4 border-[#007dc5] border-t-transparent animate-spin mx-auto"></div>
+                <h2 className="text-2xl font-semibold text-gray-700 mt-4">Loading...</h2>
+              </div>
+            </div>
+          }>
+            {children}
+          </Suspense>
+        
         </main>
         <footer>
           <Footer />
@@ -126,3 +139,9 @@ export default function HomeLayout({ children }) {
     </html>
   );
 }
+
+HomeLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default HomeLayout;

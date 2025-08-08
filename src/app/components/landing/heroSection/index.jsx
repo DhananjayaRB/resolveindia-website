@@ -1,5 +1,4 @@
 import React from 'react';
-
 const logos = [
   {
     name: 'Tally',
@@ -61,10 +60,10 @@ function HeroSection() {
           {/* Logo Marquee with Fade Effect */}
           <div className="mt-8 relative">
             {/* Left Fade Overlay - Hidden on mobile */}
-            <div className="hidden md:block absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="hidden md:block absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
             
         
-            <div className="hidden md:block absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="hidden md:block absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
             
             {/* Marquee Container */}
             <div className="overflow-hidden">

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { FaShieldAlt, FaSyncAlt, FaMapMarkerAlt, FaComments as FaOffsite, FaUsers, FaCogs } from 'react-icons/fa';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+import { FaShieldAlt, FaSyncAlt, FaMapMarkerAlt, FaComments as FaOffsite, FaUsers, FaCogs } from 'react-icons/fa';
 
 const AccountingServices = () => {
 
@@ -350,15 +350,9 @@ const AccountingServices = () => {
                                                 className="bg-white bg-opacity-95 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-opacity-100 transition-all duration-200 flex items-center gap-3 shadow-lg"
                                             >
                                                 {isVideoPlaying ? (
-                                                    <>
-                                                        <span className="text-xl">⏸️</span>
-
-                                                    </>
+                                                    <span className="text-xl">⏸️</span>
                                                 ) : (
-                                                    <>
-                                                        <span className="text-xl">▶️</span>
-
-                                                    </>
+                                                    <span className="text-xl">▶️</span>
                                                 )}
                                             </button>
                                         </div>

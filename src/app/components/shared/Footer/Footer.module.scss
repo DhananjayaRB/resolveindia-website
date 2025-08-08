@@ -81,22 +81,25 @@
   
   .appStores {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 12px;
     margin-bottom: 30px;
+    align-items: center;
     
     .appStoreBadge {
       display: block;
       text-decoration: none;
       
       .googlePlayBadge {
-        height: 30px;
+        height: 40px;
         width: auto;
+        object-fit: contain;
       }
       
       .appStoreBadge {
-        height: 30px;
+        height: 40px;
         width: auto;
+        object-fit: contain;
       }
     }
   }
@@ -310,19 +313,20 @@
       }
     }
     
-    .appStores {
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 12px;
-      margin-bottom: 20px;
-      
-      .appStoreBadge {
-        .googlePlayBadge,
-        .appStoreBadge {
-          height: 35px;
-        }
-      }
-    }
+         .appStores {
+       flex-direction: row;
+       justify-content: flex-start;
+       gap: 12px;
+       margin-bottom: 20px;
+       
+       .appStoreBadge {
+         .googlePlayBadge,
+         .appStoreBadge {
+           height: 20px;
+           object-fit: contain;
+         }
+       }
+     }
     
     .socialIcons {
       justify-content: flex-start;
@@ -422,14 +426,15 @@
       }
     }
     
-    .appStores {
-      .appStoreBadge {
-        .googlePlayBadge,
-        .appStoreBadge {
-          height: 30px;
-        }
-      }
-    }
+         .appStores {
+       .appStoreBadge {
+         .googlePlayBadge,
+         .appStoreBadge {
+           height: 35px;
+           object-fit: contain;
+         }
+       }
+     }
     
     .socialIcons {
       .socialIcon {

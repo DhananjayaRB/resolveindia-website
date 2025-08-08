@@ -1,9 +1,10 @@
 'use client';
-import lato from '@/app/ui/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaCalculator, FaMoneyBillWave, FaHandshake, FaCheckCircle, FaCalendarAlt, FaClock, FaFileAlt, FaBullhorn, FaDownload, FaVideo, FaQuestionCircle, FaLightbulb, FaBars, FaTimes } from 'react-icons/fa';
+
+
 
 const menus = [
   { key: 'home', label: 'HOME', href: '/' },
@@ -78,7 +79,7 @@ export default function Navbar() {
       onMouseEnter={() => setNavHovered(true)}
       onMouseLeave={() => setNavHovered(false)}
     >
-             <div className={`max-w-7xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8 ${lato.className}`}>
+             <div className={`max-w-7xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8`}>
          {/* Logo and Mobile Menu Button Container */}
          <div className='flex items-center justify-between w-full lg:w-auto'>
            {/* Logo */}
@@ -133,11 +134,11 @@ export default function Navbar() {
                {/* Enhanced Dropdown Menu */}
                {hoveredMenu === menu.key && menuData[menu.key] && (
                  <div
-                   className={`
-                     absolute left-0 top-full w-64 bg-white/95 backdrop-blur-xl border border-gray-200/50  shadow-2xl z-30 
-                     origin-top scale-95 opacity-0 animate-in slide-in-from-top-2 duration-200 ease-out
-                     scale-100 opacity-100 pointer-events-auto
-                   `}
+                                       className={`
+                      absolute left-0 top-full w-64 bg-white/95 backdrop-blur-xl border border-gray-200/50  shadow-2xl z-30 
+                      origin-top opacity-0 animate-in slide-in-from-top-2 duration-200 ease-out
+                      scale-100 opacity-100 pointer-events-auto
+                    `}
                    style={{
                      marginTop: '12px',
                      boxShadow: '0 25px 50px rgba(0,0,0,0.12), 0 12px 24px rgba(0,0,0,0.08)',
@@ -148,7 +149,7 @@ export default function Navbar() {
                    {/* Menu Items */}
                    <div className='p-3'>
                      {menuData[menu.key].map((item, idx) => (
-                       <div key={idx}>
+                       <div key={`${menu.key}-${item.label.replace(/\s+/g, '-').toLowerCase()}`}>
                          <Link
                            href={item.href}
                            role='menuitem'
@@ -165,7 +166,7 @@ export default function Navbar() {
                            }}
                          >
                            {pathname === item.href && (
-                             <div className='absolute left-0 top-0 bottom-0 w-0.5 bg-[rgb(2,126,197)] shadow-sm'></div>
+                             <div className='absolute left-0 top-0 bottom-0 w-0.5 bg-[rgb(2,126,197)] shadow-sm' />
                            )}
                            <div className='flex items-center space-x-2'>
                              <item.icon className={`text-base ${pathname === item.href ? 'text-[rgb(2,126,197)]' : 'text-[rgb(2,126,197)]'}`} size={16} />
@@ -173,7 +174,7 @@ export default function Navbar() {
                            </div>
                          </Link>
                          {idx < menuData[menu.key].length - 1 && (
-                           <div className='mx-3 my-1 h-px bg-gray-200/60'></div>
+                           <div className='mx-3 my-1 h-px bg-gray-200/60' />
                          )}
                        </div>
                      ))}
@@ -225,9 +226,9 @@ export default function Navbar() {
                    {/* Mobile Dropdown Items */}
                    {menuData[menu.key] && (
                      <div className='ml-4 mt-2 space-y-1'>
-                       {menuData[menu.key].map((item, idx) => (
+                       {menuData[menu.key].map((item) => (
                          <Link
-                           key={idx}
+                           key={`mobile-${menu.key}-${item.label.replace(/\s+/g, '-').toLowerCase()}`}
                            href={item.href}
                            className={`
                              flex items-center space-x-2 px-4 py-2.5 text-gray-700 font-medium relative rounded-lg
@@ -238,7 +239,7 @@ export default function Navbar() {
                            onClick={() => setIsMobileMenuOpen(false)}
                          >
                            {pathname === item.href && (
-                             <div className='absolute left-0 top-0 bottom-0 w-0.5 bg-[rgb(2,126,197)] shadow-sm'></div>
+                             <div className='absolute left-0 top-0 bottom-0 w-0.5 bg-[rgb(2,126,197)] shadow-sm' />
                            )}
                            <item.icon className={`text-base ${pathname === item.href ? 'text-[rgb(2,126,197)]' : 'text-[rgb(2,126,197)]'}`} size={16} />
                            <span className={`text-sm ${pathname === item.href ? 'font-semibold' : 'font-medium'}`}>{item.label}</span>

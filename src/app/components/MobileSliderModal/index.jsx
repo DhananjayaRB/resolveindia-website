@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import Image from 'next/image';
-import { IoChevronBack, IoChevronForward, IoClose, IoExpand } from 'react-icons/io5';
-import { IoPlay, IoPause } from 'react-icons/io5';
+import PropTypes from 'prop-types';
+import React, { useState, useEffect, useRef } from 'react';
+import { IoChevronBack, IoChevronForward, IoClose, IoExpand , IoPlay, IoPause } from 'react-icons/io5';
+
 import Button from '../../ui/Button';
 
 const MobileSliderModal = ({ isOpen, onClose }) => {

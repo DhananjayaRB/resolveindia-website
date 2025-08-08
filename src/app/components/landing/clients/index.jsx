@@ -1,7 +1,9 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
+
 import { useClientLogos } from '../../../hooks/useClientLogos';
+
 import styles from './Clients.module.scss';
 
 
@@ -47,10 +49,10 @@ function Clients() {
               onMouseLeave={() => handleRowHover(rowIndex, false)}
             >
               {/* Left Fade Overlay */}
-              <div className={styles.fadeOverlayLeft}></div>
+              <div className={styles.fadeOverlayLeft} />
               
               {/* Right Fade Overlay */}
-              <div className={styles.fadeOverlayRight}></div>
+              <div className={styles.fadeOverlayRight} />
               
               <div
                 className={styles.marqueeContainer}

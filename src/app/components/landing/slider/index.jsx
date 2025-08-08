@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, m, AnimatePresence } from "framer-motion";
 
 const slideImages = [
   "/assets/landingPageImage/sliderImages/work.png",
@@ -78,8 +78,9 @@ function Slider() {
       className="hidden lg:block w-full h-[450px] hidden md:h-[700px] relative overflow-hidden flex items-center justify-center"
       style={{ backgroundColor: backGroundColor[current] }}
     >
+      <LazyMotion features={() => import("framer-motion").then((res) => res.domAnimation)}>
       {/* Left Watermark Text */}
-      <motion.div
+      <m.div
         key={current + "-left"}
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 0.25 }}
@@ -89,14 +90,14 @@ function Slider() {
         <h1>{leftContent[current].content1}</h1>
         <h1>{leftContent[current].content2}</h1>
         <h1>{leftContent[current].content3}</h1>
-      </motion.div>
+      </m.div>
 
       {/* Phone with Screen Image */}
       <div className="absolute left-[5%] sm:left-[20%] top-1/2 -translate-y-1/2 z-20">
         <div className="relative h-[450px] sm:h-[550px] w-[225px] sm:w-[275px]">
           <div className="absolute top-[94px] left-[94px] w-[167px] h-[291px] bg-black overflow-hidden z-10">
             <AnimatePresence mode="wait">
-              <motion.img
+              <m.img
                 key={current + "-slide"}
                 src={slideImages[current]}
                 alt="Mobile Screen"
@@ -117,7 +118,7 @@ function Slider() {
       </div>
 
       {/* Right Text Content */}
-      <motion.div
+      <m.div
         key={current + "-right-text"}
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -151,11 +152,11 @@ function Slider() {
             />
           </button>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Right Side Image */}
       {rightImage[current] && (
-        <motion.div
+        <m.div
           key={current + "-right-img"}
           initial={{ y: 500, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -171,7 +172,7 @@ function Slider() {
                 : "h-[140px] sm:h-[220px] w-auto"
             }`}
           />
-        </motion.div>
+        </m.div>
       )}
 
       {/* Dot Indicator Buttons */}
@@ -183,12 +184,12 @@ function Slider() {
             className={`w-4 h-4 rounded-full border border-white transition duration-300 ${
               current === index ? "bg-white" : "bg-transparent"
             }`}
-          ></button>
+           />
         ))}
       </div>
 
       {/* Bounce Down Arrow Icon with Scroll Function */}
-      <motion.div
+      <m.div
         onClick={handleArrowClick}
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.2 }}
@@ -203,7 +204,8 @@ function Slider() {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
-      </motion.div>
+      </m.div>
+      </LazyMotion>
     </div>
   );
 }

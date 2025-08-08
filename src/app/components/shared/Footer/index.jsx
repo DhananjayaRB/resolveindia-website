@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import {
   EnvironmentOutlined,
   FacebookOutlined,
@@ -10,30 +11,30 @@ import {
   YoutubeOutlined
 } from '@ant-design/icons';
 import { Col, Row } from 'antd';
+
 import styles from './Footer.module.scss';
-import React from 'react';
 
 const Footer = () => {
   const logo = '/assets/landingPageImage/logo.png';
   
   const productsServices = [
-    'Attendance Management',
-    'Leave Management', 
-    'Expense Management',
-    'Payroll Services',
-    'Accounting Services',
-    'Resolve My Tax',
-    'Good Karma for NGO\'s'
+    { name: 'Attendance Management', url: '/attendance' },
+    { name: 'Leave Management', url: '/products/leave-management-system' },
+    { name: 'Expense Management', url: '/products/expense' },
+    { name: 'Payroll Services', url: '/services/managed-payroll-services' },
+    { name: 'Accounting Services', url: '/services/accounting-services' },
+    { name: 'Resolve My Tax', url: '/products/resolve-tax' },
+    { name: 'Good Karma for NGO\'s', url: '/products/good-karma' }
   ];
 
   const siteDisclaimer = [
-    'Terms & Conditions',
-    'Privacy Policy',
-    'Resolve Blogs',
-    'Resources',
-    'Career',
-    'Help Desk',
-    'About Us'
+    { name: 'Terms & Conditions', url: '/terms-conditions' },
+    { name: 'Privacy Policy', url: '/privacy-policy' },
+    { name: 'Resolve Blogs', url: '/blog' },
+    { name: 'Resources', url: '/resources' },
+    { name: 'Career', url: '/career' },
+    { name: 'Help Desk', url: '/help' },
+    { name: 'About Us', url: '/about-us' }
   ];
 
   return (
@@ -56,33 +57,33 @@ const Footer = () => {
                 </div>
                 
                 <div className={styles.appStores}>
-                  <a href="#" className={styles.appStoreBadge} target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Google Play Store">
+                  <a href="https://play.google.com/store/apps/details?id=com.resolvebiz.app" className={styles.appStoreBadge} target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Google Play Store">
                     <img 
                       src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
                       alt="Get it on Google Play"
                       className={styles.googlePlayBadge}
                     />
                   </a>
-                  <a href="#" className={styles.appStoreBadge} target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Apple App Store">
+                  <a href="https://apps.apple.com/app/resolvebiz/id1234567890" className={styles.appStoreBadge} target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Apple App Store">
                     <img 
                       src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" 
                       alt="Download on the App Store"
-                      className={styles.appStoreBadge}
+                      className="w-20"
                     />
                   </a>
                 </div>
                 
                 <nav className={styles.socialIcons} aria-label="Social media links">
-                  <a href="#" aria-label="Visit ResolveBiz on LinkedIn">
+                  <a href="https://www.linkedin.com/company/resolvebiz" target="_blank" rel="noopener noreferrer" aria-label="Visit ResolveBiz on LinkedIn">
                     <LinkedinOutlined className={styles.socialIcon} />
                   </a>
-                  <a href="#" aria-label="Follow ResolveBiz on Twitter">
+                  <a href="https://twitter.com/resolvebiz" target="_blank" rel="noopener noreferrer" aria-label="Follow ResolveBiz on Twitter">
                     <TwitterOutlined className={styles.socialIcon} />
                   </a>
-                  <a href="#" aria-label="Like ResolveBiz on Facebook">
+                  <a href="https://www.facebook.com/resolvebiz" target="_blank" rel="noopener noreferrer" aria-label="Like ResolveBiz on Facebook">
                     <FacebookOutlined className={styles.socialIcon} />
                   </a>
-                  <a href="#" aria-label="Subscribe to ResolveBiz on YouTube">
+                  <a href="https://www.youtube.com/@resolvebiz" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to ResolveBiz on YouTube">
                     <YoutubeOutlined className={styles.socialIcon} />
                   </a>
                 </nav>
@@ -97,7 +98,7 @@ const Footer = () => {
                   <ul className={styles.linkList}>
                     {productsServices.map((item, index) => (
                       <li key={index}>
-                        <a href="#" className={styles.footerLink}>{item}</a>
+                        <a href={item.url} className={styles.footerLink}>{item.name}</a>
                       </li>
                     ))}
                   </ul>
@@ -113,7 +114,7 @@ const Footer = () => {
                   <ul className={styles.linkList}>
                     {siteDisclaimer.map((item, index) => (
                       <li key={index}>
-                        <a href="#" className={styles.footerLink}>{item}</a>
+                        <a href={item.url} className={styles.footerLink}>{item.name}</a>
                       </li>
                     ))}
                   </ul>

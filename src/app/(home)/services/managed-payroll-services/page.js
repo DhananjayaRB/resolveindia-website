@@ -1,11 +1,12 @@
 "use client";
 
-import styles from './ManagedPayrollServices.module.scss';
-import React, { useState, useEffect, useMemo } from 'react';
-import { FaUsers, FaBuilding, FaHandshake, FaShieldAlt, FaMobileAlt, FaDesktop, FaChartBar, FaFileAlt, FaClipboardList } from 'react-icons/fa';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head';
+import React, { useState, useEffect, useMemo } from 'react';
+import { FaUsers, FaBuilding, FaHandshake, FaShieldAlt, FaMobileAlt, FaDesktop, FaChartBar, FaFileAlt, FaClipboardList } from 'react-icons/fa';
+
+import styles from './ManagedPayrollServices.module.scss';
 
 const ManagedPayrollServices = () => {
 
@@ -404,7 +405,7 @@ const ManagedPayrollServices = () => {
 
                         <div className={`${styles.timelineWrapper} relative max-w-6xl mx-auto`}>
                             {/* Vertical Line (Left side) */}
-                            <div className={styles.timelineLine} style={{ height: '70%', top: '10%' }}></div>
+                            <div className={styles.timelineLine} style={{ height: '70%', top: '10%' }} />
 
                             <div className="flex flex-col gap-12 sm:gap-16 lg:gap-20 mb-16">
                                 {coreUndertakings.map((item, index) => {

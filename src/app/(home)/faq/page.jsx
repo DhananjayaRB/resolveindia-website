@@ -181,7 +181,7 @@ export default function FaqPage() {
             {filteredFaqs.length > 0 ? (
               <div className="space-y-1">
                 {filteredFaqs.map((faq, index) => (
-                  <div key={index} className="border border-gray-200 rounded-sm">
+                  <div key={index+faq.question} className="border border-gray-200 rounded-sm">
                     <button
                       onClick={() => setOpenFaq(openFaq === index ? null : index)}
                       className="w-full px-3 py-2 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"

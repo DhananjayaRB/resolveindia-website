@@ -1,6 +1,6 @@
-import { HeroSection, Slider, Clients, Products, Services, ServicesB } from '../components/landing';
-import styles from '../page.module.css';
 import React from 'react';
+import { HeroSection, Clients, Products, Services, ServicesB, Slider } from '../components/landing';
+import styles from '../page.module.css';
 
 export const metadata = {
   title: "ResolveBiz - Business Process Management Solutions",

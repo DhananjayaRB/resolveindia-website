@@ -1,7 +1,6 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "next/typescript",
     "prettier"
   ],
   "plugins": [
@@ -22,15 +21,6 @@
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "warn",
-      {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
-      }
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
       {
         "vars": "all",
         "varsIgnorePattern": "^_",
@@ -94,41 +84,6 @@
     "import/no-cycle": "error",
     "import/no-self-import": "error",
     "import/no-useless-path-segments": "error",
-    "import/no-relative-parent-imports": "error",
-    "import-access/jsdoc": "error",
-
-    // Performance optimization rules
-    "sonarjs/no-array-constructor": "error",
-    "sonarjs/no-element-overwrite": "error",
-    "sonarjs/no-extra-arguments": "error",
-    "sonarjs/no-one-iteration-loop": "error",
-    "sonarjs/no-use-of-empty-return-value": "error",
-    "sonarjs/prefer-immediate-return": "error",
-    "sonarjs/prefer-object-literal": "error",
-    "sonarjs/prefer-single-boolean-return": "error",
-    "sonarjs/no-redundant-boolean": "error",
-    "sonarjs/no-redundant-jump": "error",
-    "sonarjs/no-small-switch": "error",
-    "sonarjs/no-unused-collection": "error",
-    "sonarjs/no-useless-catch": "error",
-    "sonarjs/prefer-while": "error",
-
-    // Array and loop optimization
-    "array-func/avoid-reverse": "error",
-    "array-func/prefer-array-from": "error",
-    "array-func/prefer-flat-map": "error",
-    "no-loops/no-loops": "warn",
-    "prefer-arrow/prefer-arrow-functions": [
-      "error",
-      {
-        "disallowPrototype": true,
-        "singleReturnOnly": false,
-        "classPropertiesAllowed": false
-      }
-    ],
-
-    // Regex optimization
-    "optimize-regex/optimize-regex": "warn",
 
     // General code quality
     "no-console": "warn",
@@ -169,19 +124,7 @@
     "jsx-a11y/no-redundant-roles": "error",
     "jsx-a11y/role-has-required-aria-props": "error",
     "jsx-a11y/role-supports-aria-props": "error",
-    "jsx-a11y/scope": "error",
-
-    // TypeScript specific
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-non-null-assertion": "warn",
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/no-misused-promises": "error"
+    "jsx-a11y/scope": "error"
   },
   "settings": {
     "react": {

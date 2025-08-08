@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import backgroundimg from './bg-footer.jpg_1.jpeg';
 import React from 'react';
+
+import backgroundimg from './bg-footer.jpg_1.jpeg';
 const featureData = [
   {
     icon: (

@@ -12,80 +12,66 @@ const AttendanceFooter = () => {
           {/* Leftmost Section - Logo, App Store Badges, Social Media */}
           <div className="space-y-6">
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-[rgb(2,126,197)] rounded-full flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm"></div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-800">WORK</h3>
-                <p className="text-sm text-gray-600">ATTENDANCE ANYWHERE</p>
-              </div>
+            <div className="flex items-center space-x-3">
+              <img
+                src='/assets/attendancePageImg/attendancePageNavLogo.png'
+                alt="Resolve Logo"
+                className="h-12 w-auto object-contain"
+              />
             </div>
 
             {/* App Store Badges */}
-            <div className="space-y-3">
-              <Link 
-                href="#" 
-                className="block w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
-                aria-label="Download from Google Play Store"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-white rounded-sm flex-shrink-0"></div>
-                  <div className="text-left">
-                    <div className="text-xs opacity-90">Get it on</div>
-                    <div className="text-sm font-medium">Google Play</div>
-                  </div>
+            
+            <div className="flex flex-row gap-2 justify-start items-center">
+                  <a href="#" className="transition-transform hover:scale-105" target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Google Play Store">
+                    <img 
+                      src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+                      alt="Get it on Google Play"
+                      className="w-22 h-10"
+                    />
+                  </a>
+                  <a href="#" className="transition-transform hover:scale-105" target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Apple App Store">
+                    <img 
+                      src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" 
+                      alt="Download on the App Store"
+                      className="w-20"
+                    />
+                  </a>
                 </div>
-              </Link>
-              
-              <Link 
-                href="#" 
-                className="block w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
-                aria-label="Download from Apple App Store"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-white rounded-sm flex-shrink-0"></div>
-                  <div className="text-left">
-                    <div className="text-xs opacity-90">Available on the</div>
-                    <div className="text-sm font-medium">App Store</div>
-                  </div>
-                </div>
-              </Link>
-            </div>
 
             {/* Social Media Icons */}
             <div className="flex space-x-3">
               <Link 
                 href="#" 
-                className="w-10 h-10 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
+                className="w-8 h-8 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
                 aria-label="Follow us on LinkedIn"
               >
                 <FaLinkedin size={16} />
               </Link>
               <Link 
                 href="#" 
-                className="w-10 h-10 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
+                className="w-8 h-8 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
                 aria-label="Follow us on Twitter"
               >
                 <FaTwitter size={16} />
               </Link>
               <Link 
                 href="#" 
-                className="w-10 h-10 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
+                className="w-8 h-8 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
                 aria-label="Follow us on Facebook"
               >
                 <FaFacebook size={16} />
               </Link>
               <Link 
                 href="#" 
-                className="w-10 h-10 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
+                className="w-8 h-8 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
                 aria-label="Follow us on YouTube"
               >
                 <FaYoutube size={16} />
               </Link>
               <Link 
                 href="#" 
-                className="w-10 h-10 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
+                className="w-8 h-8 bg-[rgb(2,126,197)] text-white rounded-lg flex items-center justify-center hover:bg-[rgb(1,100,150)] transition-colors"
                 aria-label="Follow us on Instagram"
               >
                 <FaInstagram size={16} />

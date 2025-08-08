@@ -1,13 +1,14 @@
 'use client';
-import lato from '@/app/ui/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+
+
 const attendanceTabs = [
   { key: 'home', label: 'HOME', href: '/' },
-  { key: 'gps', label: 'GPS URI', href: '/attendance/gps' },
+  { key: 'gps', label: 'GPS', href: '/attendance/gps' },
   { key: 'biometric', label: 'BIOMETRIC INTEGRATION', href: '/attendance/bio-metric' },
   { key: 'usb-fingerprint', label: 'USB FINGERPRINT', href: '/attendance/usb-fingerprint' },
   { key: 'web-login', label: 'WEB LOGIN', href: '/attendance/web-login' },
@@ -46,7 +47,7 @@ export default function AttendanceNavbar() {
       onMouseEnter={() => setNavHovered(true)}
       onMouseLeave={() => setNavHovered(false)}
     >
-      <div className={`max-w-7xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8 ${lato.className}`}>
+      <div className={`max-w-7xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8`}>
         {/* Logo and Mobile Menu Button Container */}
         <div className='flex items-center justify-between w-full lg:w-auto'>
           {/* Logo */}
