@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TermsConditions.module.scss';
+import styles from './termsConditions.module.scss';
 
 const TermsConditions = () => {
   return (

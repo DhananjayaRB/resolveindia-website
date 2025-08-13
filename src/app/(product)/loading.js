@@ -1,6 +1,6 @@
 import React from 'react';
 import '../globals.css';
-import LoadingSpinner from '../components/shared/LoadingSpinner';
+import LoadingSpinner from '../components/shared/loadingSpinner';
 
 export default function Loading() {
   return (

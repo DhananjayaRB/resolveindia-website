@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useState, useEffect, useMemo } from 'react';
 import { FaUsers, FaBuilding, FaHandshake, FaShieldAlt, FaMobileAlt, FaDesktop, FaChartBar, FaFileAlt, FaClipboardList } from 'react-icons/fa';
 
-import styles from './ManagedPayrollServices.module.scss';
+import styles from './managedPayrollServices.module.scss';
 
 const ManagedPayrollServices = () => {
 
@@ -38,7 +38,7 @@ const ManagedPayrollServices = () => {
     // Function to animate characters one by one
     const animateText = (text) => {
         return text.split('').map((char, index) => (
-            <span
+            <aside
                 key={index}
                 className={`${styles.charAnimation}`}
                 style={{
@@ -46,7 +46,7 @@ const ManagedPayrollServices = () => {
                 }}
             >
                 {char === ' ' ? '\u00A0' : char}
-            </span>
+            </aside>
         ));
     };
 
@@ -79,21 +79,21 @@ const ManagedPayrollServices = () => {
     const serviceCards = useMemo(() => [
         {
             id: 1,
-            image: "/assets/Inclusive_control.jpg",
+            image: "/assets/payroll/Inclusive_control.jpg",
             title: "Inclusive Controls",
             description: "Manage multiple payroll controls; be it head count, compensation changes, deduction, payment, or compliance reassurances.",
             buttonText: "Request for Quote"
         },
         {
             id: 2,
-            image: "/assets/available_on_mobile.jpg",
+            image: "/assets/payroll/available_on_mobile.jpg",
             title: "Available on Mobile",
             description: "Everything you need to know about your Payroll readily available on your mobile device. Whether it be Payslip, Tax workings, FBP Declarations and Claims, Savings Declarations and Proofs etc.",
             buttonText: "Request for Quote"
         },
         {
             id: 3,
-            image: "/assets/Connect_to_Experts.jpg",
+            image: "/assets/payroll/Connect_to_Experts.jpg",
             title: "Connect with Experts",
             description: "Our experts are readily available for consultation. Whether it be email queries, on-site periodic helpdesk, even 1 on 1 counselling",
             buttonText: "Request for Quote"
@@ -169,24 +169,24 @@ const ManagedPayrollServices = () => {
     const blogPosts = [
         {
             id: 1,
-            image: "/assets/Multiple_Payroll_structures.jpg",
-            fallbackImage: "/assets/Multiple_Payroll_structures.jpg",
+            image: "/assets/payroll/Multiple_Payroll_structures.jpg",
+            fallbackImage: "/assets/payroll/Multiple_Payroll_structures.jpg",
             title: "PF Scheme - Features & Benefits",
             description: "As an employee who is working in a corporate set-up there are several things that one would like to know about the Employee Provident Fund (EPF). This Blog attempts to discuss the features and Benefits of the PF scheme and how it can benefit employees in the long run.",
             buttonText: "Know More"
         },
         {
             id: 2,
-            image: "/assets/ESI_Contribution_Reduces_By.jpg",
-            fallbackImage: "/assets/ESI_Contribution_Reduces_By.jpg",
+            image: "/assets/payroll/ESI_Contribution_Reduces_By.jpg",
+            fallbackImage: "/assets/payroll/ESI_Contribution_Reduces_By.jpg",
             title: "ESI Contribution Reduces By 40%",
             description: "The government to change it's health welfare paradigm from numbers and revenues to ensuring they reach across the country of ESI dispensaries and hospitals, monitoring quality and receiving feedback from beneficiaries.",
             buttonText: "Know More"
         },
         {
             id: 3,
-            image: "/assets/Double_Income_No_Kids_Couples.jpg",
-            fallbackImage: "/assets/Double_Income_No_Kids_Couples.jpg",
+            image: "/assets/payroll/Double_Income_No_Kids_Couples.jpg",
+            fallbackImage: "/assets/payroll/Double_Income_No_Kids_Couples.jpg",
             title: "Double Income No Kids Couples",
             description: "Ravi and Jayashree with Venkatesh's help were convinced that they can now declare to their HR Manager's the options that they were choosing. He was picking on the Old Tax Regime since he would save more money.",
             buttonText: "Know More"
@@ -295,23 +295,23 @@ const ManagedPayrollServices = () => {
                     <div className="pt-1 lg:pt-1 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
-                                                    {/* Left Side - Single Image */}
-                        <div className="flex-1 flex justify-center lg:justify-start" style={{ backgroundColor: 'transparent' }}>
-                            <div className={headerAnimationsStarted ? styles.slideUpFromLeft : styles.imageHidden} style={{ backgroundColor: 'transparent' }}>
-                                <Image
-                                    src="/assets/payroll-banner (1).png"
-                                    alt="Managed Payroll Services - Professional payroll management solutions"
-                                    width={600}
-                                    height={400}
-                                    className="max-w-full h-auto w-full max-w-md lg:max-w-lg xl:max-w-xl"
-                                    priority
-                                    placeholder="empty"
-                                    style={{
-                                        backgroundColor: 'transparent'
-                                    }}
-                                />
+                            {/* Left Side - Single Image */}
+                            <div className="flex-1 flex justify-center lg:justify-start" style={{ backgroundColor: 'transparent' }}>
+                                <div className={headerAnimationsStarted ? styles.slideUpFromLeft : styles.imageHidden} style={{ backgroundColor: 'transparent' }}>
+                                    <Image
+                                        src="/assets/payroll/payroll-banner (1).png"
+                                        alt="Managed Payroll Services - Professional payroll management solutions"
+                                        width={600}
+                                        height={400}
+                                        className=" h-auto w-full max-w-md lg:max-w-lg xl:max-w-xl"
+                                        priority
+                                        placeholder="empty"
+                                        style={{
+                                            backgroundColor: 'transparent'
+                                        }}
+                                    />
+                                </div>
                             </div>
-                        </div>
 
                             {/* Right Side - Content */}
                             <div className="flex-1 text-white space-y-4 lg:space-y-8">
@@ -398,7 +398,7 @@ const ManagedPayrollServices = () => {
                     </section>
 
                     {/* Core Undertakings Section */}
-                    <section id="core-undertakings" className="bg-white py-16 px-6 lg:px-12" aria-labelledby="core-heading">
+                    <section id="core-undertakings" className="bg-white py-10 px-6 lg:px-12" aria-labelledby="core-heading">
                         <div className="max-w-8xl mx-auto text-center">
                             <h2 id="core-heading" className="text-3xl text-gray-700 mb-16"><strong>CORE UNDERTAKINGS</strong></h2>
                         </div>
@@ -441,10 +441,10 @@ const ManagedPayrollServices = () => {
 
                 {/* Bottom banner section */}
                 <section
-                    className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-16 text-white "
+                    className="relative py-1 sm:py-15 lg:py-20 px-4 sm:px-8 lg:px-16 text-white "
                     style={{
                         backgroundImage:
-                            " url('/assets/banner-bg.png')",
+                            " url('/assets/payroll/banner-bg.png')",
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',

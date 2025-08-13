@@ -117,7 +117,7 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/login`,
+      url: `https://services.resolvepay.in/login`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,

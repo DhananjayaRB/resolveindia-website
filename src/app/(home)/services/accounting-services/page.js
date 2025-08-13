@@ -350,9 +350,9 @@ const AccountingServices = () => {
                                                 className="bg-white bg-opacity-95 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-opacity-100 transition-all duration-200 flex items-center gap-3 shadow-lg"
                                             >
                                                 {isVideoPlaying ? (
-                                                    <span className="text-xl">⏸️</span>
+                                                    <aside className="text-xl">⏸️</aside>
                                                 ) : (
-                                                    <span className="text-xl">▶️</span>
+                                                    <aside className="text-xl">▶️</aside>
                                                 )}
                                             </button>
                                         </div>

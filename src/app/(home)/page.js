@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroSection, Clients, Products, Services, ServicesB, Slider } from '../components/landing';
+import { HeroSection, Clients,  Services,  Slider } from '../components/landing';
 import styles from '../page.module.css';
 
 export const metadata = {
@@ -62,14 +62,9 @@ export default function Home() {
             <Slider />
           </section>
           <section>
-            <Products />
-          </section>
-          <section>
             <Services />
           </section>
-          <section>
-            <ServicesB />
-          </section>
+         
           <section>
             <Clients />
           </section>
