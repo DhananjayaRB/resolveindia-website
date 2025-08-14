@@ -1,0 +1,453 @@
+.footer {
+  background: #2c2c2c;
+  color: #ffffff;
+  padding: 60px 0 40px;
+  position: relative;
+  font-family: 'Source Sans 3', sans-serif;
+  
+  
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 34px;
+  
+}
+
+.brandingSection {
+  .logoContainer {
+    margin-bottom: 30px;
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      
+      .logoImage {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1); // Makes the logo white
+      }
+      
+      .logoText {
+        font-size: 28px;
+        font-weight: 600;
+        color: #ffffff;
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      
+      .logoIcon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1890ff, #40a9ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-left: 4px;
+        position: relative;
+        
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: 12px;
+          height: 2px;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        
+        &::before {
+          top: 35%;
+        }
+        
+        &::after {
+          bottom: 35%;
+        }
+      }
+    }
+    
+    .tagline {
+      font-size: 12px;
+      color: #cccccc;
+      font-weight: 400;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+  }
+  
+  .appStores {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 30px;
+    align-items: center;
+    
+    .appStoreBadge {
+      display: block;
+      text-decoration: none;
+      
+      .googlePlayBadge {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+      }
+      
+      .appStoreBadge {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+      }
+    }
+  }
+  
+  .socialIcons {
+    display: flex;
+    gap: 16px;
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .socialIcon {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgb(2,126,197);
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.column {
+  .columnTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  
+  .linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin-bottom: 5px;
+      
+      .footerLink {
+        color: #cccccc;
+        text-decoration: none;
+        font-size: 17px;
+        transition: color 0.3s ease;
+        font-family: 'Source Sans 3', sans-serif;
+        
+        &:hover {
+          color: rgb(2,126,197);
+        }
+      }
+    }
+  }
+  
+  .contactInfo {
+    .contactItem {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      
+      .contactIcon {
+        color: #cccccc;
+        font-size: 16px;
+        margin-right: 12px;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+      
+      .contactText {
+        color: #cccccc;
+        font-size: 14px;
+        font-family: 'Source Sans 3', sans-serif;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: rgb(2,126,197);
+        }
+      }
+      
+      .address {
+        color: #cccccc;
+        font-size: 14px;
+        font-family: 'Source Sans 3', sans-serif;
+        line-height: 1.4;
+        
+        div {
+          margin-bottom: 2px;
+        }
+      }
+    }
+  }
+}
+
+
+.copyrightSection {
+  background: #ffffff;
+  padding: 10px 0;
+  border-top: 1px solid #e0e0e0;
+  
+  .copyrightContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+    text-align: center;
+    
+    .copyrightText {
+      color: #666666;
+      font-size: 13px;
+      font-family: 'Source Sans 3', sans-serif;
+      margin: 0;
+      font-weight: 400;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 30px;
+  }
+  
+  .container {
+    padding: 0 16px;
+    // background: #000;
+    // border-radius: 10px;
+    margin-left: 34px;
+    
+  }
+  
+  .copyrightSection {
+    padding: 15px 0;
+    
+    .copyrightContainer {
+      padding: 0 16px;
+      
+      .copyrightText {
+        font-size: 13px;
+      }
+    }
+  }
+  
+  .brandingSection {
+    text-align: left;
+    margin-bottom: 30px;
+    
+    .logoContainer {
+      margin-bottom: 20px;
+      
+      .logo {
+        justify-content: flex-start;
+        
+        .logoText {
+          font-size: 24px;
+        }
+        
+        .logoIcon {
+          width: 24px;
+          height: 24px;
+          font-size: 14px;
+        }
+      }
+    }
+    
+         .appStores {
+       flex-direction: row;
+       justify-content: flex-start;
+       gap: 12px;
+       margin-bottom: 20px;
+       
+       .appStoreBadge {
+         .googlePlayBadge,
+         .appStoreBadge {
+           height: 20px;
+           object-fit: contain;
+         }
+       }
+     }
+    
+    .socialIcons {
+      justify-content: flex-start;
+      
+      .socialIcon {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+    }
+  }
+  
+  .column {
+    text-align: left;
+    margin-bottom: 30px;
+    
+    .columnTitle {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    
+    .linkList {
+      li {
+        margin-bottom: 10px;
+        
+        .footerLink {
+          font-size: 13px;
+        }
+      }
+    }
+    
+    .contactInfo {
+      .contactItem {
+        justify-content: flex-start;
+        text-align: left;
+        
+        .contactText {
+          font-size: 13px;
+        }
+        
+        .address {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  
+  .chatButton {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    
+    .chatIcon {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 30px 0 20px;
+  }
+  
+  .container {
+    padding: 0 12px;
+  }
+  
+  .copyrightSection {
+    padding: 12px 0;
+    
+    .copyrightContainer {
+      padding: 0 12px;
+      
+      .copyrightText {
+        font-size: 12px;
+      }
+    }
+  }
+  
+  .brandingSection {
+    .logoContainer {
+      .logo {
+        .logoText {
+          font-size: 22px;
+        }
+        
+        .logoIcon {
+          width: 22px;
+          height: 22px;
+          font-size: 12px;
+        }
+      }
+      
+      .tagline {
+        font-size: 11px;
+      }
+    }
+    
+         .appStores {
+       .appStoreBadge {
+         .googlePlayBadge,
+         .appStoreBadge {
+           height: 35px;
+           object-fit: contain;
+         }
+       }
+     }
+    
+    .socialIcons {
+      .socialIcon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+    }
+  }
+  
+  .column {
+    .columnTitle {
+      font-size: 15px;
+    }
+    
+    .linkList {
+      li {
+        .footerLink {
+          font-size: 12px;
+        }
+      }
+    }
+    
+    .contactInfo {
+      .contactItem {
+        .contactText {
+          font-size: 12px;
+        }
+        
+        .address {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
+  .chatButton {
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    
+    .chatIcon {
+      font-size: 18px;
+    }
+  }
+} 
