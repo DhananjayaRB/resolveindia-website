@@ -2,37 +2,38 @@
 import React from 'react';
 import {
   EnvironmentOutlined,
-  FacebookOutlined,
-  LinkedinOutlined,
+  FacebookFilled,
+  LinkedinFilled,
   MailOutlined,
   PhoneOutlined,
   TwitterOutlined,
-  YoutubeOutlined
+  YoutubeFilled
 } from '@ant-design/icons';
 import { Col, Row } from 'antd';
 
 import styles from './footer.module.scss';
+import Link from 'next/link';
 
 const Footer = () => {
   const logo = '/assets/landingPageImage/logo.png';
-  
+
   const productsServices = [
     { name: 'Attendance Management', url: '/attendance' },
     { name: 'Leave Management', url: '/products/leave-management-system' },
-    { name: 'Expense Management', url: '/products/expense' },
+    { name: 'Expense Management', url: '/coming-soon' },
     { name: 'Payroll Services', url: '/services/managed-payroll-services' },
     { name: 'Accounting Services', url: '/services/accounting-services' },
-    { name: 'Resolve My Tax', url: '/products/resolve-tax' },
+    { name: 'Resolve My Tax', url: '/coming-soon' },
     { name: 'Good Karma for NGO\'s', url: '/services/good-karma-for-ngo' }
   ];
 
   const siteDisclaimer = [
     { name: 'Terms & Conditions', url: '/terms-conditions' },
     { name: 'Privacy Policy', url: '/privacy-policy' },
-    { name: 'Resolve Blogs', url: '/blog' },
-    { name: 'Resources', url: '/resources' },
+    { name: 'Resolve Blogs', url: '/resources/blogs' },
+    { name: 'Resources', url: '/coming-soon' },
     { name: 'Career', url: '/career' },
-    { name: 'Help Desk', url: '/help' },
+    { name: 'Help Desk', url: '/contact' },
     { name: 'About Us', url: '/about-us' }
   ];
 
@@ -47,43 +48,43 @@ const Footer = () => {
                 <h2 id="footer-branding" className="sr-only">Branding and Downloads</h2>
                 <div className={styles.logoContainer}>
                   <div className={styles.logo}>
-                    <img 
+                    <img
                       src={logo}
                       alt="ResolveBiz Logo"
                       className={styles.logoImage}
                     />
                   </div>
                 </div>
-                
-                <div className={styles.appStores}>
+
+                <div className='flex gap-2 mb-10'>
                   <a href="https://play.google.com/store/apps/details?id=com.resolveindia.resolvebiz_apps&showAllReviews=true&pli=1" className={styles.appStoreBadge} target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Google Play Store">
-                    <img 
-                      src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+                    <img
+                      src="/assets/footerImg/google-play-store.png"
                       alt="Get it on Google Play"
                       className={styles.googlePlayBadge}
                     />
                   </a>
                   <a href="https://apps.apple.com/in/app/resolve-edge/id1407275768" className={styles.appStoreBadge} target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Apple App Store">
-                    <img 
-                      src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" 
+                    <img
+                      src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
                       alt="Download on the App Store"
-                      className="w-20"
+                      className="w-30"
                     />
                   </a>
                 </div>
-                
+
                 <nav className={styles.socialIcons} aria-label="Social media links">
                   <a href="https://www.linkedin.com/company/resolve-business-services/" target="_blank" rel="noopener noreferrer" aria-label="Visit ResolveBiz on LinkedIn">
-                    <LinkedinOutlined className={styles.socialIcon} />
+                    <LinkedinFilled className={styles.socialIcon} />
                   </a>
                   <a href="https://x.com/ResolveBusiness" target="_blank" rel="noopener noreferrer" aria-label="Follow ResolveBiz on Twitter">
                     <TwitterOutlined className={styles.socialIcon} />
                   </a>
                   <a href="https://www.facebook.com/resolvebusiness/" target="_blank" rel="noopener noreferrer" aria-label="Like ResolveBiz on Facebook">
-                    <FacebookOutlined className={styles.socialIcon} />
+                    <FacebookFilled className={styles.socialIcon} />
                   </a>
                   <a href="https://www.youtube.com/channel/UCZeqVFLO720i1Z2EWHXLM4g" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to ResolveBiz on YouTube">
-                    <YoutubeOutlined className={styles.socialIcon} />
+                    <YoutubeFilled className={styles.socialIcon} />
                   </a>
                 </nav>
               </section>
@@ -135,35 +136,36 @@ const Footer = () => {
                   <div className={styles.contactItem}>
                     <PhoneOutlined className={styles.contactIcon} aria-hidden="true" />
                     <a href="tel:+919844810424" className={styles.contactText}>
-                      +91 9844810424
+                      +91 7337849102
                     </a>
                   </div>
-                  <div className={styles.contactItem}>
-                    <EnvironmentOutlined className={styles.contactIcon} aria-hidden="true" />
-                    <div className={styles.address}>
-                      <div>535, 12th Cross, 5th Main Road,</div>
-                      <div>RMV Extension, HIG Dollars Colony,</div>
-                      <div>Bangalore - 560094</div>
+                  <Link href={'https://maps.app.goo.gl/B3MnkqtvJ1LG1K6a7'} target='_blank' className='text no-underline text-inherit'>
+
+                    <div className={styles.contactItem}>
+                      <EnvironmentOutlined className={styles.contactIcon} aria-hidden="true" />
+                      <div className={styles.address}>
+                        <div>535, 12th Cross, 5th Main Road,</div>
+                        <div>RMV Extension, HIG Dollars Colony,</div>
+                        <div>Bangalore - 560094</div>
+
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </address>
               </section>
             </Col>
           </Row>
         </div>
-        
-      
-        
+
+        {/* Copyright Section */}
+        <section className={styles.copyrightSection}>
+          <div className={styles.copyrightContainer}>
+            <p className={styles.copyrightText}>
+              Copyright@2019, ResolveBiz Services and Apps Pvt Ltd.
+            </p>
+          </div>
+        </section>
       </footer>
-      
-      {/* Copyright Section */}
-      <section className={styles.copyrightSection}>
-        <div className={styles.copyrightContainer}>
-          <p className={styles.copyrightText}>
-            Copyright@2019, ResolveBiz Services and Apps Pvt Ltd.
-          </p>
-        </div>
-      </section>
     </>
   );
 };

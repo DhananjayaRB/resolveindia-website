@@ -27,14 +27,14 @@ const AttendanceFooter = () => {
                     <img 
                       src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
                       alt="Get it on Google Play"
-                      className="w-22 h-10"
+                      className="h-10 w-32 object-contain"
                     />
                   </a>
                   <a href="#" className="transition-transform hover:scale-105" target="_blank" rel="noopener noreferrer" aria-label="Download ResolveBiz app from Apple App Store">
                     <img 
                       src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" 
                       alt="Download on the App Store"
-                      className="w-20"
+                      className="h-10 w-32 object-contain"
                     />
                   </a>
                 </div>
@@ -167,7 +167,7 @@ const AttendanceFooter = () => {
                   href="tel:+919844810424" 
                   className="text-[rgb(2,126,197)] hover:text-[rgb(1,100,150)] transition-colors"
                 >
-                  +91 9844810424
+                  +91 7337849102
                 </Link>
               </div>
               

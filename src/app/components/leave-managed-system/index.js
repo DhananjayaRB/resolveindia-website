@@ -42,9 +42,11 @@ const LeaveManagementClient = ({
     const [hasAnimated, setHasAnimated] = useState(false);
     const [openFAQ, setOpenFAQ] = useState(null);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
+    const [isHeroAnimated, setIsHeroAnimated] = useState(false);
 
     const sliderRef = useRef(null);
     const statsRef = useRef(null);
+    const heroRef = useRef(null);
 
     // Auto-play slider
     useEffect(() => {
@@ -55,12 +57,15 @@ const LeaveManagementClient = ({
         return () => clearInterval(interval);
     }, []);
 
-    // Combined intersection observer for both slider and stats
+    // Combined intersection observer for slider, stats, and hero
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
+                        if (entry.target === heroRef.current) {
+                            setIsHeroAnimated(true);
+                        }
                         if (entry.target === sliderRef.current) {
                             setIsSliderAnimated(true);
                         }
@@ -74,6 +79,7 @@ const LeaveManagementClient = ({
             { threshold: 0.1 }
         );
 
+        if (heroRef.current) observer.observe(heroRef.current);
         if (sliderRef.current) observer.observe(sliderRef.current);
         if (statsRef.current) observer.observe(statsRef.current);
 
@@ -104,10 +110,10 @@ const LeaveManagementClient = ({
             const progress = Math.min(currentStep, 1);
 
             setAnimatedNumbers({
-                1: Math.floor(3680 * progress),
-                2: Math.floor(50 * progress),
-                3: Math.floor(80 * progress),
-                4: Math.floor(100 * progress)
+                1: Math.floor(2000 * progress)+"+",
+                2: Math.floor(50 * progress) + '%',
+                3: Math.floor(80 * progress) + '%',
+                4: Math.floor(100 * progress) + '%'
             });
 
             if (currentStep >= 1) {
@@ -160,33 +166,23 @@ const LeaveManagementClient = ({
 
     // Slider images data
     const sliderImages = [
-        "/assets/leave/core-feature-1.png",
-        "/assets/leave/core-feature-2.png",
-        "/assets/leave/core-feature-3.png",
-        "/assets/leave/core-feature-4.png",
-        "/assets/leave/core-feature-5.png",
-        "/assets/leave/core-feature-6.png"
+        "/assets/leave/core-feature-1.webp",
+        "/assets/leave/core-feature-2.webp",
+        "/assets/leave/core-feature-3.webp",
+        "/assets/leave/core-feature-4.webp",
+        "/assets/leave/core-feature-5.webp",
+        "/assets/leave/core-feature-6.webp"
     ];
 
     return (
         <>
             {/* Preload critical resources for LCP optimization */}
-            <link
-                rel="preload"
-                href="/assets/leave/hero-bg-leave.png"
-                as="image"
-                type="image/png"
-                fetchPriority="high"
-            />
-            
             {/* Hero Section  */}
             <section
+                ref={heroRef}
                 className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
                 style={{
-                    backgroundImage: "url('/assets/leave/hero-bg-leave.png')",
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
+                    backgroundColor: "#D5DCE5",
                     willChange: 'auto'
                 }}
             >
@@ -196,16 +192,19 @@ const LeaveManagementClient = ({
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
                         {/* Left Side: Text Content */}
-                        <div className="w-full lg:w-5/9 space-y-5 pl-5 ">
+                        <div className={`w-full lg:w-1/2 space-y-5 pl-5 transition-all duration-1000 ease-out ${isHeroAnimated
+                                ? 'opacity-100 translate-x-0'
+                                : 'opacity-0 -translate-x-20'
+                            }`}>
                             <h1
-                                className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight pb-5"
+                                className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold text-black leading-tight pb-5"
                             >
                                 Real-Time Leave Records in
                                 Leave Management System
                             </h1>
 
                             <p
-                                className="text-base sm:text-lg lg:text-xl text-blue-100 leading-relaxed max-w-2xl line-height-5"
+                                className="text-base sm:text-lg lg:text-xl text-black leading-relaxed max-w-2xl line-height-5"
                             >
                                 Leave Management System automates everything from leave accounting, grants, to period closing activities.
                             </p>
@@ -213,12 +212,24 @@ const LeaveManagementClient = ({
                             <div className="pt-2">
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center px-6 py-3 text-base font-semibold text-white bg-[rgb(2,126,197)] rounded-lg transition-all duration-300 hover:bg-[rgb(1,100,160)] hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300/50"
+                                    className="inline-flex items-center px-6 py-3 text-base font-semibold text-white bg-[rgb(2,126,197)] rounded-lg transition-all duration-150 hover:bg-[rgb(1,100,160)] hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300/50"
                                     aria-label="Schedule a demo for Leave Management System"
                                 >
                                     Schedule a Demo
                                 </Link>
                             </div>
+                        </div>
+
+                        {/* Right Side: Image */}
+                        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                            <Image
+                                src="/assets/leave/leave-hero-mobile.webp"
+                                alt="Leave Management System Mobile App"
+                                width={400}
+                                height={600}
+                                className="w-auto h-auto max-w-full max-h-[80vh] object-contain"
+                                priority
+                            />
                         </div>
                     </div>
                 </div>
@@ -280,12 +291,12 @@ const LeaveManagementClient = ({
                                         ? 'scale-100 rotate-0'
                                         : 'scale-50 rotate-12 translate-y-32'
                                         }`}
-                                    onClick={() => setIsModalOpen(true)}
+
                                 >
                                     {/* Mobile Screen Content */}
                                     <div className="w-full h-full relative">
                                         <Image
-                                            src={`/assets/leave/core-feature-${currentSlide + 1}.png`}
+                                            src={`/assets/leave/core-feature-${currentSlide + 1}.webp`}
                                             alt={`Core feature ${currentSlide + 1}`}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -307,7 +318,7 @@ const LeaveManagementClient = ({
                                     <IoChevronBack size={20} />
                                 </Button>
                                 <Button
-                                    className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-white p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#007dc5] hover:text-white"
+                                    className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#007dc5] hover:text-white"
                                     aria-label="Next slide"
                                     onClick={() => setCurrentSlide((prev) => (prev + 1) % 6)}
                                 >
@@ -414,7 +425,7 @@ const LeaveManagementClient = ({
                                         {feature.title}
                                     </h3>
 
-                                    <p className="text-blue-100 leading-relaxed text-xs lg:text-sm group-hover:text-white transition-all duration-500 ease-out">
+                                    <p className="text-blue-100 leading-relaxed text-xs lg:text-sm group-hover:text-gray-700 transition-all duration-500 ease-out">
                                         {feature.description}
                                     </p>
 
@@ -429,15 +440,17 @@ const LeaveManagementClient = ({
                 </div>
             </section>
             {/* Single Leave Application Section */}
-            <section className="py-5 ">
-                <div className="container flex justify-center">
-                                        <Image
-                        src="/assets/leave/Single-Leave.png"
-                        alt="Leave Application"
-                        width={1000}
-                        height={1000}
-                        className="w-auto h-auto max-w-full object-contain"
-                    />
+            <section className="py-5">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-center items-center w-full">
+                        <Image
+                            src="/assets/leave/Single-Leave.png"
+                            alt="Leave Application"
+                            width={1000}
+                            height={1000}
+                            className="w-auto h-auto max-w-full object-contain mx-auto"
+                        />
+                    </div>
                 </div>
             </section>
 
@@ -469,21 +482,18 @@ const LeaveManagementClient = ({
 
                                     {/* Number */}
                                     <h3 className="text-4xl font-bold text-white mb-4 group-hover:text-[#008ACC] transition-all duration-300">
-                                        <aside className="inline-block">
+                                        <aside className="flex items-center justify-center gap-1">
                                             {createRollingDigits(stat.id)}
-                                            {stat.number.toString().includes('%') && (
-                                                <aside>%</aside>
-                                            )}
                                         </aside>
                                     </h3>
 
                                     {/* Description */}
-                                    <p className="text-white font-large mb-5 text-2xl group-hover:text-[#008ACC] transition-all duration-300">
+                                    <p className="text-white font-large mb-5 text-xl group-hover:text-[#008ACC] transition-all duration-300">
                                         {stat.description}
                                     </p>
 
                                     {/* Bottom Curve */}
-                                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 h-2 bg-transparent border-t-10 border-white rounded-t-full" />
+                                  
 
                                     {/* SEO-friendly hidden content */}
                                     <aside className="sr-only">
@@ -518,7 +528,7 @@ const LeaveManagementClient = ({
                         <div className="w-full lg:w-2/5 flex justify-center lg:justify-start">
                             <div className="relative">
                                 <Image
-                                    src="/assets/leave/Leave-apps.png"
+                                    src="/assets/leave/Leave-apps.webp"
                                     alt="Leave Management System Mobile App"
                                     width={500}
                                     height={700}
@@ -541,7 +551,12 @@ const LeaveManagementClient = ({
             </section>
 
             {/* Get Social Section */}
-            <section className="min-h-screen flex items-center justify-center bg-white">
+            <section
+                className="min-h-screen flex items-center justify-center"
+                style={{
+                    background: 'linear-gradient(to right, #FDFCFB, #E2D1C3)'
+                }}
+            >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-4xl mx-auto">
                         {/* Section Heading */}
@@ -668,9 +683,11 @@ const LeaveManagementClient = ({
 
                 {/* Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full"
                     style={{
                         backgroundImage: "url('/assets/leave/HR-review-bg-leave.png')",
+                        width: '100%',
+                        height: '500px',
                         backgroundPosition: 'center',
                         backgroundSize: 'cover'
                     }}
@@ -889,7 +906,7 @@ const LeaveManagementClient = ({
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                             {/* Google Play Store */}
                             <a
-                                href="https://play.google.com/store/apps/details?id=com.resolve.leave"
+                                href="https://play.google.com/store/apps/details?id=com.resolveindia.resolvebiz_apps"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group transition-all duration-300 hover:scale-105"
@@ -906,7 +923,7 @@ const LeaveManagementClient = ({
 
                             {/* App Store */}
                             <a
-                                href="https://apps.apple.com/app/resolve-leave/id123456789"
+                                href="https://apps.apple.com/in/app/resolve-edge/id1407275768"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group transition-all duration-300 hover:scale-105"
@@ -914,13 +931,10 @@ const LeaveManagementClient = ({
                             >
                                 <picture>
                                     <source
-                                        srcSet="/assets/leave/app-store.avif"
+                                        srcSet="/assets/leave/app-store.png"
                                         type="image/avif"
                                     />
-                                    <source
-                                        srcSet="/assets/leave/app-store.webp"
-                                        type="image/webp"
-                                    />
+
                                     <Image
                                         src="/assets/leave/app-store.png"
                                         alt="Available on the App Store"
@@ -956,7 +970,7 @@ const LeaveManagementClient = ({
                         {faqData.map((faq) => (
                             <div key={faq.id} className="border border-gray-200 rounded-lg overflow-hidden">
                                 <button
-                                    className={`w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex justify-between items-center ${openFAQ === faq.id ? 'bg-[#007dc5] text-white' : 'text-[#204e69]'
+                                    className={`w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex justify-between items-center ${openFAQ === faq.id ? 'bg-[#007dc5] text-black' : 'text-[#204e69]'
                                         }`}
                                     onClick={() => toggleFAQ(faq.id)}
                                 >

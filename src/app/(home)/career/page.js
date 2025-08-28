@@ -13,7 +13,7 @@ const Career = () => {
         qualification: '',
         resume: null
     });
-    
+
     // Custom dropdown state
     const [isQualificationDropdownOpen, setIsQualificationDropdownOpen] = useState(false);
     const qualificationDropdownRef = useRef(null);
@@ -310,7 +310,7 @@ const Career = () => {
                 {/* Structured Data - JobPosting Schema */}
                 <script
                     type="application/ld+json"
-                
+
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
@@ -393,7 +393,7 @@ const Career = () => {
                         style={{
                             backgroundImage: 'url(/assets/career/career-bg.png)',
                         }}
-                     />
+                    />
 
                     {/* Content */}
                     <div className="relative z-10 text-center text-white px-4">
@@ -417,11 +417,11 @@ const Career = () => {
                     <div className="max-w-6xl mx-auto">
                         <div className="grid lg:grid-cols-3 gap-6 items-start">
 
-                                                    {/* Left Section: Apply for Job Form */}
-                        <div className="lg:col-span-1 bg-white rounded-xl shadow-lg p-4 border border-gray-100 h-fit self-start sticky top-4">
-                            <h2 className="text-xl font-bold text-gray-800 mb-4 text-center">
-                                APPLY FOR JOB
-                            </h2>
+                            {/* Left Section: Apply for Job Form */}
+                            <div className="lg:col-span-1 bg-white rounded-xl shadow-lg p-4 border border-gray-100 h-fit self-start sticky top-4">
+                                <h2 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                                    APPLY FOR JOB
+                                </h2>
 
                                 <form onSubmit={handleSubmit} className="space-y-3">
                                     {/* Name Field */}
@@ -435,7 +435,7 @@ const Career = () => {
                                             value={formData.name}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white text-sm"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg  transition-all duration-200 bg-gray-50 hover:bg-white text-sm"
                                             placeholder="Enter your full name"
                                         />
                                     </div>
@@ -452,12 +452,10 @@ const Career = () => {
                                                 value={formData.email}
                                                 onChange={handleInputChange}
                                                 required
-                                                className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                                                className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg  transition-all duration-200 bg-gray-50 hover:bg-white"
                                                 placeholder="Enter your email address"
                                             />
-                                            <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                            </svg>
+
                                         </div>
                                     </div>
 
@@ -472,7 +470,7 @@ const Career = () => {
                                             value={formData.mobile}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white text-sm"
+                                            className="w-full px-3 py-2 border border-gray-300 rounded-lg  transition-all duration-200 bg-gray-50 hover:bg-white text-sm"
                                             placeholder="Enter your mobile number"
                                         />
                                     </div>
@@ -490,44 +488,43 @@ const Career = () => {
                                             aria-expanded={isQualificationDropdownOpen}
                                             aria-haspopup="listbox"
                                             aria-controls="qualification-listbox"
-                                            className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white appearance-none cursor-pointer text-sm ${isQualificationDropdownOpen ? 'ring-2 ring-blue-500' : ''}`}
+                                            className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 transition-all duration-200 bg-gray-50 hover:bg-white appearance-none cursor-pointer text-sm }`}
                                         >
                                             {formData.qualification || 'Select your qualification'}
-                                            <svg className={`absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 transition-transform duration-200 pointer-events-none ${isQualificationDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg className={`absolute right-3 top-3/4 -translate-y-1/2 w-5 h-5 text-gray-400 transition-transform duration-200 pointer-events-none ${isQualificationDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                             </svg>
                                         </div>
-                                         {isQualificationDropdownOpen && (
-                                             <div 
-                                                 id="qualification-listbox"
-                                                 className="absolute z-10 w-full bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-60 overflow-y-auto"
-                                                 role="listbox"
-                                             >
-                                                 {vacancies.map(vacancy => (
-                                                     <div
-                                                         key={vacancy.id}
-                                                         onClick={() => handleQualificationSelect(vacancy.id)}
-                                                         onKeyDown={(e) => {
-                                                             if (e.key === 'Enter' || e.key === ' ') {
-                                                                 e.preventDefault();
-                                                                 handleQualificationSelect(vacancy.id);
-                                                             }
-                                                         }}
-                                                         tabIndex={0}
-                                                         role="option"
-                                                         aria-selected={formData.qualification === vacancy.id}
-                                                         className={`px-4 py-3 cursor-pointer text-sm transition-colors duration-150 ${
-                                                             formData.qualification === vacancy.id 
-                                                                 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-500' 
-                                                                 : 'hover:bg-gray-50 text-gray-700'
-                                                         }`}
-                                                     >
-                                                         <div className="font-medium">{vacancy.title}</div>
-                                                         <div className="text-xs text-gray-500 mt-1">{vacancy.location}</div>
-                                                     </div>
-                                                 ))}
-                                             </div>
-                                         )}
+                                        {isQualificationDropdownOpen && (
+                                            <div
+                                                id="qualification-listbox"
+                                                className="absolute z-10 w-full bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-60 overflow-y-auto"
+                                                role="listbox"
+                                            >
+                                                {vacancies.map(vacancy => (
+                                                    <div
+                                                        key={vacancy.id}
+                                                        onClick={() => handleQualificationSelect(vacancy.id)}
+                                                        onKeyDown={(e) => {
+                                                            if (e.key === 'Enter' || e.key === ' ') {
+                                                                e.preventDefault();
+                                                                handleQualificationSelect(vacancy.id);
+                                                            }
+                                                        }}
+                                                        tabIndex={0}
+                                                        role="option"
+                                                        aria-selected={formData.qualification === vacancy.id}
+                                                        className={`px-4 py-3 cursor-pointer text-sm transition-colors duration-150 ${formData.qualification === vacancy.id
+                                                                ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-500'
+                                                                : 'hover:bg-gray-50 text-gray-700'
+                                                            }`}
+                                                    >
+                                                        <div className="font-medium">{vacancy.title}</div>
+                                                        <div className="text-xs text-gray-500 mt-1">{vacancy.location}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Resume Upload */}
@@ -546,7 +543,7 @@ const Career = () => {
                                             />
                                             <label
                                                 htmlFor="resume-upload"
-                                                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer font-medium text-sm"
+                                                className="px-4 py-2 bg-[rgb(2,126,197)] text-white rounded-lg hover:bg-[rgb(1,101,158)] transition-colors cursor-pointer font-medium text-sm"
                                             >
                                                 Choose File
                                             </label>
@@ -559,7 +556,8 @@ const Career = () => {
                                     {/* Submit Button */}
                                     <Button
                                         type="submit"
-                                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 px-4 rounded-lg font-bold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                                        className="w-full text-white py-2 px-4 rounded-lg font-bold text-sm transition-all duration-200 transform hover:scale-105 shadow-lg hover:bg-[rgb(1,101,158)]"
+                                        style={{ backgroundColor: 'rgb(2,126,197)' }}
                                     >
                                         SEND
                                     </Button>
@@ -579,7 +577,7 @@ const Career = () => {
                                             key={vacancy.id}
                                             onClick={() => setSelectedVacancy(vacancy.id)}
                                             className={`px-3 py-2 text-xs font-medium rounded-lg transition-all duration-200 ${selectedVacancy === vacancy.id
-                                                ? 'bg-blue-600 text-white shadow-lg'
+                                                ? 'bg-[rgb(2,126,197)] text-white shadow-lg'
                                                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                                 }`}
                                         >
@@ -649,17 +647,17 @@ const Career = () => {
                                             </div>
                                         )}
 
-                                                                                 {/* Vacancy Image */}
-                                         <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center overflow-hidden">
-                                             <img
-                                                 src={currentVacancy.image}
-                                                 alt={currentVacancy.title}
-                                                 className="w-full h-full object-cover"
-                                                 onError={(e) => {
-                                                     e.target.style.display = 'none';
-                                                     e.target.nextSibling.style.display = 'flex';
-                                                 }}
-                                             />
+                                        {/* Vacancy Image */}
+                                        <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center overflow-hidden">
+                                            <img
+                                                src={currentVacancy.image}
+                                                alt={currentVacancy.title}
+                                                className="w-full h-full object-cover"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none';
+                                                    e.target.nextSibling.style.display = 'flex';
+                                                }}
+                                            />
                                             <div className="hidden items-center justify-center text-gray-500 text-center text-xs">
                                                 {currentVacancy.title} Image<br />
                                                 <aside className="text-xs">(Image placeholder)</aside>

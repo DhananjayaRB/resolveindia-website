@@ -3,190 +3,82 @@ import { useMemo } from 'react';
 export const useClientLogos = () => {
   const clientLogos = useMemo(() => [
     {
-      id: 'alltech',
-      name: 'Alltech',
-      logo: '/assets/clientsLogo/alltech.png',
-      alt: 'Alltech company logo'
+      id: 'client-2',
+      name: 'Client 2',
+      logo: '/assets/clientsLogo/client-2.webp',
+      alt: 'Client 2 company logo'
     },
     {
-      id: 'tibil',
-      name: 'TIBIL',
-      logo: '/assets/clientsLogo/TIBIL.png',
-      alt: 'TIBIL company logo'
+      id: 'client-3',
+      name: 'Client 3',
+      logo: '/assets/clientsLogo/client-3.webp',
+      alt: 'Client 3 company logo'
     },
     {
-      id: 'fundemax',
-      name: 'Fundemax',
-      logo: '/assets/clientsLogo/fundemax-logo.png',
-      alt: 'Fundemax company logo'
+      id: 'client-4',
+      name: 'Client 4',
+      logo: '/assets/clientsLogo/client-4.webp',
+      alt: 'Client 4 company logo'
     },
     {
-      id: 'atlas-systems',
-      name: 'Atlas Systems',
-      logo: '/assets/clientsLogo/atlas-systems.png',
-      alt: 'Atlas Systems company logo'
+      id: 'client-5',
+      name: 'Client 5',
+      logo: '/assets/clientsLogo/client-5.webp',
+      alt: 'Client 5 company logo'
     },
     {
-      id: 'unacademy',
-      name: 'Unacademy',
-      logo: '/assets/clientsLogo/Unacademy.png',
-      alt: 'Unacademy company logo'
+      id: 'client-6',
+      name: 'Client 6',
+      logo: '/assets/clientsLogo/client-6.webp',
+      alt: 'Client 6 company logo'
     },
     {
-      id: 'cothas-coffee',
-      name: 'Cothas Coffee',
-      logo: '/assets/clientsLogo/cothas-coffee.png',
-      alt: 'Cothas Coffee company logo'
+      id: 'client-7',
+      name: 'Client 7',
+      logo: '/assets/clientsLogo/client-7.webp',
+      alt: 'Client 7 company logo'
     },
     {
-      id: 'jana-care',
-      name: 'Jana Care',
-      logo: '/assets/clientsLogo/jana-care-logo.png',
-      alt: 'Jana Care company logo'
+      id: 'client-8',
+      name: 'Client 8',
+      logo: '/assets/clientsLogo/client-8.webp',
+      alt: 'Client 8 company logo'
     },
     {
-      id: 'elematic',
-      name: 'Elematic',
-      logo: '/assets/clientsLogo/elematic-logo.png',
-      alt: 'Elematic company logo'
+      id: 'client-9',
+      name: 'Client 9',
+      logo: '/assets/clientsLogo/client-9.webp',
+      alt: 'Client 9 company logo'
     },
     {
-      id: 'praras',
-      name: 'Praras',
-      logo: '/assets/clientsLogo/praras-logo.png',
-      alt: 'Praras company logo'
+      id: 'client-10',
+      name: 'Client 10',
+      logo: '/assets/clientsLogo/client-10.webp',
+      alt: 'Client 10 company logo'
     },
     {
-      id: 'bmst',
-      name: 'BMST',
-      logo: '/assets/clientsLogo/bmst-logo.png',
-      alt: 'BMST company logo'
+      id: 'client-11',
+      name: 'Client 11',
+      logo: '/assets/clientsLogo/client-11.webp',
+      alt: 'Client 11 company logo'
     },
     {
-      id: 'ubmtech',
-      name: 'UBMTech',
-      logo: '/assets/clientsLogo/ubmtech.png',
-      alt: 'UBMTech company logo'
+      id: 'client-12',
+      name: 'Client 12',
+      logo: '/assets/clientsLogo/client-12.webp',
+      alt: 'Client 12 company logo'
     },
     {
-      id: 'tally',
-      name: 'Tally',
-      logo: '/assets/clientsLogo/Tally.png',
-      alt: 'Tally company logo'
+      id: 'client-13',
+      name: 'Client 13',
+      logo: '/assets/clientsLogo/client-13.webp',
+      alt: 'Client 13 company logo'
     },
     {
-      id: 'vwr',
-      name: 'VWR',
-      logo: '/assets/clientsLogo/VWR.png',
-      alt: 'VWR company logo'
-    },
-    {
-      id: 'willow',
-      name: 'Willow',
-      logo: '/assets/clientsLogo/willow.png',
-      alt: 'Willow company logo'
-    },
-    {
-      id: 'unitus',
-      name: 'Unitus',
-      logo: '/assets/clientsLogo/Unitus.png',
-      alt: 'Unitus company logo'
-    },
-    {
-      id: 'nadathur',
-      name: 'Nadathur',
-      logo: '/assets/clientsLogo/Nadathur.png',
-      alt: 'Nadathur company logo'
-    },
-    {
-      id: 'lkq',
-      name: 'LKQ',
-      logo: '/assets/clientsLogo/LKQ.png',
-      alt: 'LKQ company logo'
-    },
-    {
-      id: 'shubloan',
-      name: 'ShubLoan',
-      logo: '/assets/clientsLogo/Shubloan.png',
-      alt: 'ShubLoan company logo'
-    },
-    {
-      id: 'desicrew',
-      name: 'DesiCrew',
-      logo: '/assets/clientsLogo/desicrew.png',
-      alt: 'DesiCrew company logo'
-    },
-    {
-      id: 'greenestep',
-      name: 'Greenestep',
-      logo: '/assets/clientsLogo/Greenestep.png',
-      alt: 'Greenestep company logo'
-    },
-    {
-      id: 'jamcracker',
-      name: 'Jamcracker',
-      logo: '/assets/clientsLogo/Jamcracker.png',
-      alt: 'Jamcracker company logo'
-    },
-    {
-      id: 'gilbarco',
-      name: 'Gilbarco',
-      logo: '/assets/clientsLogo/Gilbarco.png',
-      alt: 'Gilbarco company logo'
-    },
-    {
-      id: 'cision',
-      name: 'Cision',
-      logo: '/assets/clientsLogo/Cision.png',
-      alt: 'Cision company logo'
-    },
-    {
-      id: 'encora',
-      name: 'Encora',
-      logo: '/assets/clientsLogo/encora.png',
-      alt: 'Encora company logo'
-    },
-    {
-      id: 'spc',
-      name: 'SPC',
-      logo: '/assets/clientsLogo/spc.png',
-      alt: 'SPC company logo'
-    },
-    {
-      id: 'radiant',
-      name: 'Radiant',
-      logo: '/assets/clientsLogo/radiant.png',
-      alt: 'Radiant company logo'
-    },
-    {
-      id: 's',
-      name: 'S',
-      logo: '/assets/clientsLogo/s.png',
-      alt: 'S company logo'
-    },
-    {
-      id: 'terex',
-      name: 'Terex',
-      logo: '/assets/clientsLogo/terex.png',
-      alt: 'Terex company logo'
-    },
-    {
-      id: 'aaf',
-      name: 'AAF',
-      logo: '/assets/clientsLogo/aaf.png',
-      alt: 'AAF company logo'
-    },
-    {
-      id: 'expense',
-      name: 'Expense',
-      logo: '/assets/clientsLogo/Expense-Logo.png',
-      alt: 'Expense company logo'
-    },
-    {
-      id: 'twin-health',
-      name: 'Twin Health',
-      logo: '/assets/clientsLogo/TwinHealthLogo-1-e1618989522815.png',
-      alt: 'Twin Health company logo'
+      id: 'client-14',
+      name: 'Client 14',
+      logo: '/assets/clientsLogo/client-14.webp',
+      alt: 'Client 14 company logo'
     }
   ], []);
 

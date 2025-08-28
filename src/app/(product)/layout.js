@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import PropTypes from "prop-types";
 import "./../globals.css";
 import AttendanceNavbar from "../components/attendance/navbar";
-import AttendanceFooter from "../components/attendance/footer";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,7 +78,7 @@ function AttendanceLayout({ children }) {
               {children}
             </Suspense>
           </main>
-          <AttendanceFooter />
+          
           
         </div>
       </body>

@@ -3,7 +3,8 @@ import { Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 import PropTypes from "prop-types";
 
 import "../globals.css";
-import { Navbar, Footer } from "../components/shared";
+import { Footer } from "../components/shared";
+import ConditionalNavbar from "./ConditionalNavbar";
 
 const sourceSans3 = Source_Sans_3({
   variable: "--font-source-sans-3",
@@ -120,10 +121,10 @@ function HomeLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body style={{ paddingTop: "var(--navbar-height)" }} className={`${geistSans.variable} ${geistMono.variable} ${sourceSans3.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${sourceSans3.variable}`}>
 
         <header>
-          <Navbar />
+          <ConditionalNavbar />
         </header>
         <main id="main-content">
           <Suspense fallback={

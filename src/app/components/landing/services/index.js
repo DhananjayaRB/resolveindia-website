@@ -1,60 +1,67 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import styles from './services.module.scss';
+
 const servicesData = [
   {
     title: 'Accounting',
-    bg: '#1d5373',
+    bg: '#EDF5FF',
     description: `When you outsource your Accounting management to Resolve Biz Services & Apps, you can rest assured of the fact that we will provide the optimum service model for your business. We discuss and develop solutions that are structured especially for your business.`,
     button: 'LEARN MORE',
-    buttonColor: '#1d5373',
+    buttonColor: '#4A90E2',
     aria: 'Learn more about our Accounting Services',
+    url: '/services/accounting-services',
   },
   {
     title: 'Payroll',
-    bg: '#0A395B',
+    bg: '#EDF5FF',
     description: `Partner with Resolve Biz Services & Apps, and let us handle all your payroll processes. We support Multi-layer pay structures across different branches, sub-contractor payroll, and more. We even handle all statutory forms, manage SLA and MIS reporting.`,
     button: 'LEARN MORE',
-    buttonColor: '#1d5373',
+    buttonColor: '#4A90E2',
     aria: 'Learn more about our Payroll Services',
+    url: '/services/managed-payroll-services',
+  },
+  {
+    title: 'GoodKarma for NGO',
+    bg: '#EDF5FF',
+    description: `Our mission is to provide global accounting standards and practices to our client Non-Profits, provide the highest level of financial transparency and enable compliance with applicable laws to be it Income Tax, FCRA, Company Law, Labour Laws etc.`,
+    button: 'LEARN MORE',
+    buttonColor: '#4A90E2',
+    aria: 'Discover our blog articles',
+    url: '/services/good-karma-for-ngo',
   },
 ];
 
-const blogData = {
-  title: 'GoodKarma for NGO',
-  bg: '#0A395B',
-  description: (
-    <>
-       Our mission is to provide global accounting standards and practices to our client Non-Profits, provide the highest level of financial transparency and enable compliance with applicable laws to be it Income Tax, FCRA, Company Law, Labour Laws etc. 
-    </>
-  ),
-  button: 'LEARN MORE',
-  buttonColor: '#224f6e',
-  aria: 'Discover our blog articles',
-};
-
-const postsData = {
-  title: 'Latest Blog Posts',
-  bg: '#224f6e',
-  posts: [
-    'Double Income No Kids (DINK) Couples',
-    'PF Scheme – It’s Features & Benefits',
-    'Young Professional – Single',
-    'COVID-19 Lockdown – Financial Relief To Small Business 3 Months PF Subsidy',
-  ],
-  button: 'LEARN MORE',
-  buttonColor: '#224f6e',
-  aria: 'Discover our blog articles',
-};
-
 function Services() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % Math.ceil(servicesData.length / 2));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+
+
+  const totalSlides = 2; // Fixed to 2 slides
+
+  // Custom slide data to show Accounting+Payroll, then Payroll+GoodKarma
+  const slideData = [
+    [servicesData[0], servicesData[1]], // Accounting + Payroll
+    [servicesData[1], servicesData[2]], // Payroll + GoodKarma
+  ];
+
   return (
     <section
-      className='bg-[#0A395B] w-full '
+      className='bg-[#EDF5FF] w-full'
       aria-labelledby='services-heading'
     >
-      <header className='m-[30px] h-[100px] '>
+      <header className='m-[-1px] h-[100px]'>
         <h1
           id='services-heading'
-          className='text-white text-3xl font-bold text-center py-10'
+          className='text-gray-800 text-3xl font-bold text-center py-10'
         >
           SERVICES
         </h1>
@@ -63,78 +70,69 @@ function Services() {
           content='Professional Accounting, Payroll and Business Blog Services for sustained business growth'
         />
       </header>
-      {/* Services Row */}
-      <div className='flex flex-col md:flex-row w-full'>
-        {servicesData.map((srv, idx) => (
-          <article
-            key={srv.title}
-            className={`flex-1`}
-            style={{ backgroundColor: srv.bg, minHeight: '440px' }}
-            aria-label={srv.title}
+      
+      {/* Services Carousel */}
+      <div className='relative max-w-6xl mx-auto px-4 pb-10'>
+        <div className='overflow-hidden'>
+          <div 
+            className='flex transition-transform duration-500 ease-in-out'
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            <div
-              className={`p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 ${idx === 0 ? 'md:border-r' : ''} border-[#15334a]`}
-            >
-              <h2 className='text-white text-2xl mb-4 font-bold'>
-                {srv.title}
-              </h2>
-              <p className='text-base text-white mb-6 max-w-md text-left'>
-                {srv.description}
-              </p>
-              <button
-                className='border border-white text-white py-1 px-6 rounded-full text-sm transition hover:bg-white hover:text-[#1d5373]'
-                aria-label={srv.aria}
+            {Array.from({ length: totalSlides }, (_, slideIndex) => (
+              <div
+                key={slideIndex}
+                className='w-full flex-shrink-0'
+                style={{ minHeight: '440px' }}
               >
-                {srv.button}
-              </button>
-            </div>
-          </article>
-        ))}
-      </div>
-      {/* Blog Row */}
-      <div className='flex flex-col md:flex-row w-full'>
-        <article
-          className='flex-1'
-          style={{ backgroundColor: blogData.bg, minHeight: '440px' }}
-          aria-label={blogData.title}
-        >
-          <div className='p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 md:border-r border-[#15334a]'>
-            <h2 className='text-white text-2xl mb-4 font-bold'>
-              {blogData.title}
-            </h2>
-            <p className='text-base text-white mb-6 max-w-md text-left'>
-              {blogData.description}
-            </p>
-            <button
-              className='border border-white text-white py-1 px-6 rounded-full text-sm transition hover:bg-white hover:text-[#224f6e]'
-              aria-label={blogData.aria}
-            >
-              {blogData.button}
-            </button>
+                                 <div className='flex flex-col md:flex-row w-full'>
+                   {slideData[slideIndex].map((srv, idx) => (
+                    <article
+                      key={srv.title}
+                      className='flex-1'
+                      style={{ backgroundColor: srv.bg, minHeight: '440px' }}
+                      aria-label={srv.title}
+                    >
+                      <div
+                        className={`p-8 flex flex-col justify-center items-center h-full border-b md:border-b-0 ${idx === 0 ? 'md:border-r' : ''} border-gray-200`}
+                      >
+                        <h2 className='text-gray-800 text-2xl mb-4 font-bold'>
+                          {srv.title}
+                        </h2>
+                        <p className='text-base text-gray-600 mb-6 max-w-md text-left'>
+                          {srv.description}
+                        </p>
+                        <Link href={srv.url}>
+                          <button
+                            className={`${styles.fillButton} border border-gray-800 text-gray-800 py-1 px-6 rounded-full text-sm transition-all duration-300 cursor-pointer transform hover:scale-105`}
+                            aria-label={srv.aria}
+                          >
+                            {srv.button}
+                          </button>
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        </article>
-        <nav
-          className='flex-1'
-          style={{ backgroundColor: postsData.bg, minHeight: '440px' }}
-          aria-label={postsData.title}
-        >
-          <div className='p-8 h-full flex flex-col justify-center items-center'>
-            <h2 className='text-white text-2xl mb-4 font-bold text-center'>
-              {postsData.title}
-            </h2>
-            <ul className='text-base text-white list-disc list-inside ml-2 space-y-2'>
-              {postsData.posts.map((post, idx) => (
-                <li key={idx}>{post}</li>
-              ))}
-            </ul>
+        </div>
+        
+
+        
+        {/* Dots Indicator */}
+        <div className='flex justify-center mt-4 space-x-2'>
+          {Array.from({ length: totalSlides }, (_, idx) => (
             <button
-                className='border border-white text-white py-1 px-6 rounded-full text-sm transition hover:bg-white hover:text-[#1d5373]'
-                aria-label={postsData.aria}
-              >
-                {postsData.button}
-              </button>
-          </div>
-        </nav>
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                idx === currentSlide ? 'bg-gray-800' : 'bg-gray-300'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -66,13 +66,6 @@ function Slider() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleArrowClick = () => {
-    const nextSection = document.getElementById("next-section");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div
       className="hidden lg:block w-full h-[450px]  md:h-[700px] relative overflow-hidden flex items-center justify-center"
@@ -187,24 +180,6 @@ function Slider() {
            />
         ))}
       </div>
-
-      {/* Bounce Down Arrow Icon with Scroll Function */}
-      <m.div
-        onClick={handleArrowClick}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.2 }}
-        className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white text-4xl cursor-pointer"
-      >
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-      </m.div>
       </LazyMotion>
     </div>
   );

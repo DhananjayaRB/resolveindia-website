@@ -429,7 +429,7 @@ const AccountingServices = () => {
                                             className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
-                                    <div className="p-6 text-center">
+                                    <div className="p-6 text-center text-justify">
                                         <h3 className="text-sm sm:text-base font-bold mb-3 transition-colors duration-300 font-['Inter']" style={{ color: 'rgb(2, 126, 197)' }}>
                                             {card.title}
                                         </h3>
@@ -467,7 +467,7 @@ const AccountingServices = () => {
                             </h2>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 ">
 
                             {coreUndertakings.map((undertaking, index) => (
                                 <article key={undertaking.id} className="text-center group cursor-pointer">
@@ -490,7 +490,7 @@ const AccountingServices = () => {
                                         <strong>{undertaking.title}</strong>
                                     </h3>
 
-                                    <p className="text-xs sm:text-sm text-white leading-relaxed font-['Inter'] max-w-full break-words">
+                                    <p className="text-xs sm:text-sm text-white text-justify leading-relaxed font-['Inter'] max-w-full break-words">
                                         {undertaking.description}
                                     </p>
                                 </article>
@@ -559,7 +559,7 @@ const AccountingServices = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                             {standoutFeatures.map((feature, index) => (
-                                <article key={feature.id} className="text-center group cursor-pointer p-6 rounded-lg transition-all duration-300 hover:bg-[#5E936C] hover:bg-opacity-20 hover:shadow-lg">
+                                <article key={feature.id} className="text-center group cursor-pointer p-6 rounded-lg transition-all duration-300 hover:bg-[#d3d1d3] hover:bg-opacity-20 hover:shadow-lg ">
                                     <div className="mb-6">
                                         <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-700 transform group-hover:scale-110 ${isStandoutFeaturesAnimated
                                             ? 'scale-100 opacity-100'
@@ -569,7 +569,7 @@ const AccountingServices = () => {
                                                 transitionDelay: `${index * 200}ms`,
                                                 backgroundColor: 'rgb(2, 126, 197)'
                                             }}>
-                                            <cite className={`text-2xl transition-colors duration-300 not-italic ${feature.iconColor} ${feature.hoverColor}`}>
+                                            <cite className={`text-2xl transition-colors duration-200 not-italic ${feature.iconColor} ${feature.hoverColor}`}>
                                                 {feature.icon}
                                             </cite>
                                         </div>
@@ -579,7 +579,7 @@ const AccountingServices = () => {
                                         <strong>{feature.title}</strong>
                                     </h3>
 
-                                    <p className="text-sm sm:text-base text-white leading-relaxed font-['Inter']">
+                                    <p className="text-sm sm:text-base text-white text-justify leading-relaxed font-['Inter'] group-hover:text-gray-700 transition-colors duration-300">
                                         {feature.description}
                                     </p>
                                 </article>

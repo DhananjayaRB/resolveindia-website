@@ -256,7 +256,7 @@ export default function TipsPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-white focus:outline-none"
+              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-white focus:outline-none"
             />
             <button className="bg-white text-[rgb(2,126,197)] px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 shadow-lg">
               Subscribe

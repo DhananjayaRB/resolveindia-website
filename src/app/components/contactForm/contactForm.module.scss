@@ -1,0 +1,232 @@
+/* From Uiverse.io by Satwinder04 */ 
+/* Input container */
+.input-container {
+  position: relative;
+  margin: 20px;
+}
+
+/* Input field */
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+}
+
+/* Input label */
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Input highlight */
+.input-highlight {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #007bff, #3b82f6);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
+}
+
+/* Input field:focus styles */
+.input-field:focus + .input-label {
+  top: -20px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.input-field:focus + .input-label + .input-highlight {
+  width: 100%;
+}
+
+/* Custom styles for our contact form */
+.contact-input-container {
+  position: relative;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-color: rgba(156, 163, 175, 0.8);
+  }
+
+  svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+    color: #6b7280;
+    transition: color 0.3s ease;
+  }
+
+  &.has-error {
+    border-color: #ef4444;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+
+    .contact-input-field {
+      border-bottom-color: #ef4444;
+    }
+
+    .contact-input-highlight {
+      background-color: #ef4444;
+    }
+
+    svg {
+      color: #ef4444;
+    }
+  }
+}
+
+.contact-input-field {
+  display: block;
+  width: 100%;
+  padding: 16px 12px 12px 48px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #e5e7eb;
+  outline: none;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  resize: none;
+  color: #374151;
+  font-weight: 500;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    border-bottom-color: #007bff;
+    color: #111827;
+  }
+
+  &:hover {
+    border-bottom-color: #9ca3af;
+  }
+
+  &:focus + .contact-input-label {
+    top: -2px;
+    font-size: 12px;
+    color: #007bff;
+    transform: translateY(0);
+    font-weight: 600;
+  }
+
+  &:focus + .contact-input-label + .contact-input-highlight {
+    width: 100%;
+  }
+
+  &:not(:placeholder-shown) + .contact-input-label {
+    top: -8px;
+    font-size: 12px;
+    color: #007bff;
+    transform: translateY(0);
+    font-weight: 600;
+  }
+
+  &:not(:placeholder-shown) + .contact-input-label + .contact-input-highlight {
+    width: 100%;
+  }
+}
+
+.contact-input-label {
+  position: absolute;
+  top: 16px;
+  left: 48px;
+  font-size: 16px;
+  color: #9ca3af;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  font-weight: 500;
+  // background: rgba(255, 255, 255, 0.9);
+  padding: 0 4px;
+}
+
+/* Special handling for textarea */
+textarea.contact-input-field {
+  min-height: 40px;
+  padding-top: 16px;
+  line-height: 1.4;
+
+  & ~ .contact-input-label {
+    top: 16px;
+  }
+
+  &:focus ~ .contact-input-label,
+  &:not(:placeholder-shown) ~ .contact-input-label {
+    top: -12px;
+  }
+}
+
+/* Textarea container icon positioning - ensure proper horizontal alignment */
+.contact-input-container textarea {
+  & ~ svg {
+    top: 12px !important;
+    transform: none !important;
+    color: #6b7280 !important;
+  }
+}
+
+/* Ensure proper spacing for the form */
+.contact-input-container:last-child {
+  margin-bottom: 0;
+}
+
+/* Force icon visibility for textarea */
+.contact-input-container {
+  textarea + svg,
+  textarea ~ svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Enhanced focus states */
+.contact-input-container:focus-within {
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Animation improvements */
+.contact-input-label {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-input-highlight {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects for better interactivity */
+.contact-input-container:hover svg {
+  color: #007bff;
+}
+
+/* Error state enhancements */
+.contact-input-container.has-error:hover {
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2);
+}
+
+/* Success state for filled fields */
+.contact-input-container:has(.contact-input-field:not(:placeholder-shown)) {
+  background: rgba(255, 255, 255, 0.95);
+}

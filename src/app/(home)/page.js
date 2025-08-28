@@ -1,6 +1,7 @@
 import React from 'react';
-import { HeroSection,  Services,  Slider } from '../components/landing';
+import {   Services,  Slider } from '../components/landing';
 import styles from '../page.module.css';
+import AnotherHeroSection from '../components/landing/anotherHeroSection';
 
 export const metadata = {
   title: "ResolveBiz - Business Process Management Solutions",
@@ -56,7 +57,7 @@ export default function Home() {
       <div className={styles.page}>
         <article>
           <section>
-            <HeroSection />
+            <AnotherHeroSection />
           </section>
           <section>
             <Services />

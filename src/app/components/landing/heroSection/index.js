@@ -1,41 +1,75 @@
-import React from 'react';
-import Clients from '../clients';
+"use client";
+import React from "react";
+import { useClientLogos } from "../../../hooks/useClientLogos";
 
 function HeroSection() {
-    return (
-      <section className="w-full min-h-[calc(100vh-5rem)] bg-white px-6 md:px-10 py-8 md:py-12 flex flex-col justify-between ">
-        {/* Main Content Container */}
-        <div className='flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-12'>
-          {/* Left Side: Text Content */}
-          <div className=" max-w-xl text-center  lg:text-left mt-15">
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#204e69] leading-tight">
-              Resolve Your Business Processes
-            </h1>
-            <p className="text-lg md:text-lg lg:text-xl text-[#204e69] mb-8 leading-relaxed">
-              Software And Domain Services
-            </p>
-            <button className="bg-[#007dc5] text-white px-8 py-4 text-sm font-bold rounded-lg hover:bg-[#08c] transition-colors duration-300 transform hover:scale-105">
-              GET STARTED
-            </button>
-          </div>
-      
-          {/* Right Side: Image */}
-          <div className="flex-1 w-full lg:w-auto flex justify-center lg:justify-end">
-            <img
-              src="/assets/landingPageImage/Resolve-Edge.png"
-              alt="Resolve Business Illustration"
-              className="w-full max-w-[500px] lg:max-w-[400px] h-auto object-contain"
-            />
-          </div>
+  const { clientLogos } = useClientLogos();
+
+  // Duplicate array for smooth looping
+  const logosLoop = [...clientLogos, ...clientLogos];
+
+  return (
+    <section className="w-full h-auto min-h-[calc(100vh-5rem)] bg-white px-4 sm:px-6 md:px-5 rounded-md flex flex-col">
+      {/* Top Row */}
+      <div className="flex flex-col md:flex-row gap-4 flex-1">
+        {/* Left Tall Box with text */}
+        <div className="flex-1 rounded-lg flex flex-col justify-center px-3 md:px-4 text-center md:text-left">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1f4f6b] mb-4">
+            Resolve Your Business Processes
+          </h1>
+          <p className="text-base sm:text-lg text-[#1f4f6b] mb-6">
+            Software And Domain Services
+          </p>
+          <button className="bg-[#01649D] text-white py-3 rounded-md  hover:bg-[#0369a1] transition mt-6 md:mt-10 mx-auto md:mx-0 w-[150px] cursor-pointer">
+            GET STARTED
+          </button>
         </div>
 
-        {/* Clients Section */}
-        <div className="w-full">
-          <Clients />
+        {/* Right Wide Box with Image */}
+        <div className="flex-[1.5] rounded-lg flex items-center justify-center">
+          <img
+            src="https://resolveindia-website.vercel.app/assets/landingPageImage/Resolve-Edge.png"
+            alt="Resolve Edge"
+            className="w-full  md:w-[75%] h-auto object-cover h-full"
+          />
         </div>
-      </section>
-    );
-  }
-  
-  export default HeroSection;
-  
+      </div>
+
+      {/* Bottom Row (Marquee effect, 5 logos visible) */}
+      <div className=" flex-shrink-0 overflow-hidden   py-3">
+        <div className="flex animate-marquee ">
+          {logosLoop.map((client, idx) => (
+            <div
+              key={`${client.id}-${idx}`}
+              className="rounded-lg flex   items-center justify-center w-[30%] sm:w-[18%] md:w-[15%] flex-shrink-0 "
+            
+            >
+              <img
+                src={client.logo}
+                alt={client.alt}
+                className="max-h-[60px] sm:max-h-[80px] md:max-h-[100px] w-full object-contain "
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Custom Styles */}
+      <style >{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 15s linear infinite;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+export default HeroSection;

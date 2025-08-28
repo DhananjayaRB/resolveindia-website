@@ -81,7 +81,7 @@ const LeaveManagementSystem = () => {
     const statisticsData = [
         {
             id: 1,
-            number: "3680",
+            number: "2000+",
             description: "Resolve Existing Users",
             icon: "IoPersonOutline",
             seoTitle: "Resolve Leave Management System Users"
@@ -103,7 +103,7 @@ const LeaveManagementSystem = () => {
         {
             id: 4,
             number: "100%",
-            description: "Reduction in Leave Reconciliation",
+            description: "Time Saved on Leave Reconciliation",
             icon: "IoCalendarOutline",
             seoTitle: "Leave Reconciliation Efficiency"
         }
@@ -127,7 +127,7 @@ const LeaveManagementSystem = () => {
             id: 3,
             name: "ANITA PATEL",
             title: "Senior HR Executive",
-            quote: "The system is incredibly user-friendly and has significantly reduced our administrative workload. Employees love the self-service features and real-time updates."
+            quote: "The system is incredibly simple and user-friendly and has significantly reduced our administrative workload. Employees truly love the self-service features and real-time updates."
         }
     ];
 

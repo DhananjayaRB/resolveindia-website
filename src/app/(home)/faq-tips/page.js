@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { FaQuestionCircle, FaLightbulb, FaChevronDown, FaChevronUp, FaSearch, FaBookOpen, FaUsers, FaCog, FaChartLine, FaShieldAlt } from 'react-icons/fa';
 
 const faqData = [
@@ -86,13 +87,13 @@ export default function FaqTipsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[rgb(2,126,197)] to-[rgb(2,126,197)]/90 text-white py-16">
+      <div className="bg-gradient-to-r from-[rgb(2,126,197)] to-[rgb(2,126,197)]/90 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">
               FAQ & Tips
             </h1>
-            <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg opacity-90 max-w-2xl mx-auto">
               Find answers to common questions and discover helpful tips to optimize your business operations
             </p>
           </div>
@@ -105,25 +106,25 @@ export default function FaqTipsPage() {
           <div className="bg-white rounded-lg p-1 shadow-md">
             <button
               onClick={() => setActiveTab('faq')}
-              className={`px-6 py-3 rounded-md font-medium transition-all duration-200 ${
+              className={`w-72 px-6 py-4 rounded-md font-medium transition-all duration-200 cursor-pointer text-center ${
                 activeTab === 'faq'
                   ? 'bg-[rgb(2,126,197)] text-white shadow-md'
                   : 'text-gray-600 hover:text-[rgb(2,126,197)] hover:bg-gray-50'
               }`}
             >
               <FaQuestionCircle className="inline mr-2" />
-              Frequently Asked Questions
+              <span className="whitespace-nowrap">Frequently Asked Questions</span>
             </button>
             <button
               onClick={() => setActiveTab('tips')}
-              className={`px-6 py-3 rounded-md font-medium transition-all duration-200 ${
+              className={`w-72 px-6 py-4 rounded-md font-medium transition-all duration-200 cursor-pointer text-center ${
                 activeTab === 'tips'
                   ? 'bg-[rgb(2,126,197)] text-white shadow-md'
                   : 'text-gray-600 hover:text-[rgb(2,126,197)] hover:bg-gray-50'
               }`}
             >
               <FaLightbulb className="inline mr-2" />
-              Business Tips
+              <span className="whitespace-nowrap">Business Tips</span>
             </button>
           </div>
         </div>
@@ -140,7 +141,7 @@ export default function FaqTipsPage() {
                   <div key={index} className="border border-gray-200 rounded-lg">
                     <button
                       onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200 cursor-pointer"
                     >
                       <aside className="font-medium text-gray-800">{faq.question}</aside>
                       {openFaq === index ? (
@@ -182,7 +183,7 @@ export default function FaqTipsPage() {
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                         selectedCategory === category
                           ? 'bg-[rgb(2,126,197)] text-white'
                           : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -239,9 +240,11 @@ export default function FaqTipsPage() {
            <p className="text-lg opacity-90 mb-8">
              Our expert team is here to help you with any specific questions or requirements
            </p>
-          <button className="bg-white text-[rgb(2,126,197)] px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 shadow-lg">
-            Contact Our Team
-          </button>
+          <Link href="/contact">
+            <button className="bg-white text-[rgb(2,126,197)] px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 shadow-lg cursor-pointer">
+              Contact Our Team
+            </button>
+          </Link>
         </div>
       </div>
     </div>

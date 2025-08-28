@@ -289,21 +289,21 @@ const ManagedPayrollServices = () => {
             </Head>
             <main className="min-h-screen">
                 {/* Hero Section with Blue Background */}
-                <header className='py-16 lg:py-20 relative overflow-hidden' style={{ backgroundColor: 'rgb(2, 126, 197)' }} aria-label="Managed Payroll Services Hero Section">
+                <header className='h-screen relative overflow-hidden flex items-center' style={{ backgroundColor: 'rgb(2, 126, 197)' }} aria-label="Managed Payroll Services Hero Section">
 
                     {/* Main Content */}
-                    <div className="pt-1 lg:pt-1 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
+                    <div className="px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full -mt-20">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
                             {/* Left Side - Single Image */}
                             <div className="flex-1 flex justify-center lg:justify-start" style={{ backgroundColor: 'transparent' }}>
-                                <div className={headerAnimationsStarted ? styles.slideUpFromLeft : styles.imageHidden} style={{ backgroundColor: 'transparent' }}>
+                                <div className={headerAnimationsStarted ? styles.gbPopupBounceToRight : styles.imageHidden}>
                                     <Image
-                                        src="/assets/payroll/payroll-banner (1).png"
+                                        src="/assets/payroll/payroll-hero-img2.png"
                                         alt="Managed Payroll Services - Professional payroll management solutions"
                                         width={600}
                                         height={400}
-                                        className=" h-auto w-full max-w-md lg:max-w-lg xl:max-w-xl"
+                                        className=" h-auto w-full max-w-xs lg:max-w-sm xl:max-w-md"
                                         priority
                                         placeholder="empty"
                                         style={{
@@ -377,12 +377,12 @@ const ManagedPayrollServices = () => {
                                         {/* Card Content */}
                                         <div className="p-6 lg:p-8 flex-1 flex flex-col text-center">
                                             {/* Title */}
-                                            <h3 className="text-base sm:text-lg lg:text-xl font-normal mb-4 lg:mb-6" style={{ color: 'rgb(2, 126, 197)' }}>
+                                            <h3 className="text-base sm:text-lg lg:text-xl font-normal text-justify mb-4 lg:mb-6" style={{ color: 'rgb(2, 126, 197)' }}>
                                                 {card.title}
                                             </h3>
 
                                             {/* Description */}
-                                            <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed mb-6 lg:mb-8 flex-1">
+                                            <p className="text-xs sm:text-sm lg:text-base text-justify text-gray-600 leading-relaxed mb-6 lg:mb-8 flex-1">
                                                 {card.description}
                                             </p>
 
@@ -427,7 +427,7 @@ const ManagedPayrollServices = () => {
                                                     <h3 className="text-sm sm:text-base lg:text-xl font-semibold text-slate-700 uppercase mb-2 transition-colors group-hover:text-[rgb(2,126,197)]">
                                                         <strong>{item.title}</strong>
                                                     </h3>
-                                                    <p className="text-xs sm:text-sm lg:text-base text-gray-500 leading-relaxed max-w-2xl">{item.description}</p>
+                                                    <p className="text-xs sm:text-sm text-justify lg:text-base text-gray-500 leading-relaxed max-w-2xl">{item.description}</p>
                                                 </div>
                                             </div>
                                         </article>
@@ -521,12 +521,12 @@ const ManagedPayrollServices = () => {
                                                 </div>
 
                                                 {/* Content */}
-                                                <div className="text-center flex-1 flex flex-col justify-center">
+                                                <div className="text-center flex-1 flex  flex-col justify-center">
                                                     <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-700 mb-3 lg:mb-4 uppercase tracking-wide transition-colors duration-300 leading-tight group-hover:text-[rgb(2,126,197)]">
                                                         <strong>{feature.title}</strong>
                                                     </h3>
 
-                                                    <p className="text-sm sm:text-sm lg:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                                                    <p className="text-sm sm:text-sm lg:text-base text-justify text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                                                         {feature.description}
                                                     </p>
                                                 </div>
@@ -595,7 +595,7 @@ const ManagedPayrollServices = () => {
                                                 </h3>
 
                                                 {/* Description */}
-                                                <p className="text-sm sm:text-sm lg:text-base text-gray-600 leading-relaxed mb-4 flex-1 group-hover:text-gray-700 text-center transition-colors duration-300 line-clamp-5 overflow-hidden min-h-[80px]">
+                                                <p className="text-sm text-justify sm:text-sm lg:text-base text-gray-600 leading-relaxed mb-4 flex-1 group-hover:text-gray-700 text-center transition-colors duration-300 line-clamp-5 overflow-hidden min-h-[80px]">
                                                     {blog.description}
                                                 </p>
                                                 {/* Button */}
